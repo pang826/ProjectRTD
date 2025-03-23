@@ -6,7 +6,7 @@ public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager Instance;
     [SerializeField] private List<GameObject> obj = new List<GameObject>();
-    [SerializeField] private Dictionary<E_PoolType, GameObject> dict = new Dictionary<E_PoolType, GameObject>();
+    [SerializeField] private Dictionary<E_PoolType, Queue<GameObject>> dict = new Dictionary<E_PoolType, Queue<GameObject>>();
     
     private void Awake()
     {
@@ -23,22 +23,38 @@ public class ObjectPoolManager : MonoBehaviour
 
         for(int i = 1; i <= obj.Count; i++) 
         {
-            dict.Add((E_PoolType)i, obj[i - 1]);
             Queue<GameObject> que = new Queue<GameObject>();
-            que.Enqueue(obj[i - 1]);
+            dict.Add((E_PoolType)i, que);
+            for(int j = 0; j < 10; j++)
+            {
+                GameObject newObj = Instantiate(obj[i - 1], transform);
+                newObj.SetActive(false);
+                dict[(E_PoolType)i].Enqueue(newObj);
+            }
         }
     }
 
     public GameObject GetObject(E_PoolType type, Transform transform)
     {
-        GameObject obj = Instantiate(dict[type], transform);
-        obj.transform.parent = this.transform;
-        obj.gameObject.SetActive(true);
-        return obj;
+        GameObject getObj;
+        if (dict[type].Count > 0)
+        {
+            getObj = dict[type].Dequeue();
+        }
+        else
+        {
+            getObj = Instantiate(this.obj[(int)type - 1]);
+        }
+        getObj.transform.parent = null;
+        getObj.transform.position = transform.position;
+        getObj.gameObject.SetActive(true);
+        return getObj;
     }
 
     public void ReturnObject(E_PoolType type, GameObject obj) 
     {
-
+        obj.transform.parent = transform;
+        obj.gameObject.SetActive(false);
+        dict[type].Enqueue(obj);
     }
 }

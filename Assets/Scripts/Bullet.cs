@@ -5,5 +5,12 @@ using UnityEngine;
 public abstract class Bullet : MonoBehaviour
 {
     public Tower Tower;
-    public abstract void Shot();
+    protected E_PoolType bulletType;
+    public abstract void Move();
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("ªË¡¶");
+        ObjectPoolManager.Instance.ReturnObject(bulletType, gameObject);
+    }
 }

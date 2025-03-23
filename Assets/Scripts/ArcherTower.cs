@@ -19,8 +19,6 @@ public class ArcherTower : Tower
         // TODO : 몬스터가 트리거에 있으면 공격 코루틴 호출
         if (other.gameObject.GetComponent<Test>())
         {
-            Debug.Log("궁수접촉");
-            Debug.Log($"궁수{isAttack}");
             enemy = other.gameObject;
             Attack(this);
         }

@@ -93,7 +93,7 @@ BoxCollider:
   m_GameObject: {fileID: 6744132286600201455}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -191,7 +191,7 @@ BoxCollider:
   m_GameObject: {fileID: 6744132286664065938}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -205,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6744132286825884685}
   - component: {fileID: 6744132286825884686}
+  - component: {fileID: 4302795172479978963}
   m_Layer: 6
   m_Name: Arrow
   m_TagString: Untagged
@@ -240,3 +241,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02307c9d0f09ba449597b8119e039b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tower: {fileID: 0}
+--- !u!65 &4302795172479978963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744132286825884687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.119682565, y: 0.06881322, z: 0.688475}
+  m_Center: {x: 0.001365535, y: 0.0066158175, z: 0.001050055}
