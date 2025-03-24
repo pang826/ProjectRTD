@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ArcherTower : Tower
@@ -8,10 +9,16 @@ public class ArcherTower : Tower
     {
         name = "±Ã¼öÅ¸¿ö";
         attackDelay = 0.5f;
-        bulletType = E_PoolType.Arrow;
+        poolType = E_PoolType.Arrow;
     }
     private void Update()
     {
+        Collider[] enemys = Physics.OverlapSphere(transform.position, 3f, 1 << 3);
+        if (enemys.Length > 0)
+        {
+            enemy = enemys[0].gameObject;
+            Attack(this);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -28,8 +35,11 @@ public class ArcherTower : Tower
     {
         if (isAttack == false)
         {
-            GameObject obj = ObjectPoolManager.Instance.GetObject(bulletType, transform);
-            obj.GetComponent<Bullet>().Tower = child;
+            GameObject obj = ObjectPoolManager.Instance.GetObject(poolType, transform);
+            if(obj.GetComponent<Bullet>().Tower == null)
+            {
+                obj.GetComponent<Bullet>().Tower = child;
+            }
         }
         base.Attack(child);
     }

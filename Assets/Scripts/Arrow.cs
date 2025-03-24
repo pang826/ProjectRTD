@@ -7,7 +7,7 @@ public class Arrow : Bullet
 {
     private void Awake()
     {
-        bulletType = E_PoolType.Arrow;
+        poolType = E_PoolType.Arrow;
     }
     private void Update()
     {

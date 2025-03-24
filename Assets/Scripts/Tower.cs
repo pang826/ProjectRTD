@@ -5,8 +5,7 @@ using UnityEngine;
 public abstract class Tower : MonoBehaviour
 {
     public GameObject enemy;
-    [SerializeField] protected Bullet bullet;
-    protected E_PoolType bulletType;
+    protected E_PoolType poolType;
     protected bool isAttack;
     protected float attackDelay;
     public virtual void Attack(Tower child)

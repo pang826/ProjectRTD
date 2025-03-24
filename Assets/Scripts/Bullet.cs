@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class Bullet : MonoBehaviour
 {
     public Tower Tower;
-    protected E_PoolType bulletType;
+    protected E_PoolType poolType;
     public abstract void Move();
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        Debug.Log("삭제");
-        ObjectPoolManager.Instance.ReturnObject(bulletType, gameObject);
+        Debug.Log("삭제");    
+        ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
     }
 }
