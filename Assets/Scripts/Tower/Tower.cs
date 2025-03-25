@@ -8,6 +8,8 @@ public abstract class Tower : MonoBehaviour
     protected E_PoolType poolType;
     protected bool isAttack;
     protected float attackDelay;
+    protected float range;
+    public float Damage;
     public virtual void Attack(Tower child)
     {
         if(child.isAttack == false)
