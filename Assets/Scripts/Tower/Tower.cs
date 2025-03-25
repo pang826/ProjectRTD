@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Tower : MonoBehaviour
 {
+    [SerializeField] protected Collider[] enemys;
     public GameObject enemy;
     protected E_PoolType poolType;
     protected bool isAttack;

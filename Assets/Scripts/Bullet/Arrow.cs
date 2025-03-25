@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Arrow : Bullet
 {
-    private void Awake()
+    private void Start()
     {
         poolType = E_PoolType.Arrow;
     }
@@ -15,7 +15,7 @@ public class Arrow : Bullet
     }
     public override void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, Tower.enemy.transform.position, Time.deltaTime * 8);
+        transform.position = Vector3.MoveTowards(transform.position, Tower.enemy.transform.position, Time.deltaTime * 10);
         transform.LookAt(Tower.enemy.transform);
     }
     

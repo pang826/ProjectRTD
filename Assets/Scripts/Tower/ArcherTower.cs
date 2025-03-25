@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class ArcherTower : Tower
 {
-    [SerializeField] Collider[] enemys;
     private void Start()
     {
         name = "±Ã¼öÅ¸¿ö";
         attackDelay = 0.5f;
         poolType = E_PoolType.Arrow;
-        range = 5f;
+        range = 10f;
         Damage = 1f;
     }
     private void Update()
@@ -32,10 +31,7 @@ public class ArcherTower : Tower
         if (isAttack == false)
         {
             GameObject obj = ObjectPoolManager.Instance.GetObject(poolType, transform);
-            if(obj.GetComponent<Bullet>().Tower == null)
-            {
-                obj.GetComponent<Bullet>().Tower = child;
-            }
+            obj.GetComponent<Bullet>().Tower = child;
         }
         base.Attack(child);
     }
