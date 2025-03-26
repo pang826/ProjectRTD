@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    int hp = 10;
+
+    public void TakeDamage(int dmg)
     {
-        
+        hp -= dmg;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(hp <= 0)
+        {
+
+        }
     }
 }

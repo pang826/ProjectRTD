@@ -6,6 +6,7 @@ public class TowerSpawnManager : MonoBehaviour
 {
     public static TowerSpawnManager Instance;
     [SerializeField] private GameObject[] towers;
+    Dictionary<E_TowerType, Queue<GameObject>> towerDic = new Dictionary<E_TowerType, Queue<GameObject>>();
     private int towerCount;
     private void Awake()
     {
@@ -20,11 +21,18 @@ public class TowerSpawnManager : MonoBehaviour
                 Destroy(gameObject);
         }
         towerCount = towers.Length;
+
+        for(int i = 0; i < towers.Length; i++) 
+        {
+            Queue<GameObject> que = new Queue<GameObject>();
+            towerDic.Add((E_TowerType)i, que);
+        }
     }
 
     public GameObject Spawn()
     {
         int randNum = Random.Range(0, towerCount);
+        towerDic[(E_TowerType)randNum].Enqueue(towers[randNum]);
         return towers[randNum];
     }
 }

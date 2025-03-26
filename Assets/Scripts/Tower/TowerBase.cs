@@ -10,6 +10,7 @@ public class TowerBase : MonoBehaviour, IPointerClickHandler, IPointerDownHandle
     [SerializeField] private Transform towerSocket;
     [SerializeField] private TowerManagementUI towerManagementUI;
     private bool isEmissionOn;
+    public bool isSpawned;
     private void Awake()
     {
         towerSocket = transform.GetChild(0);
