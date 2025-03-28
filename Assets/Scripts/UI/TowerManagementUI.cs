@@ -11,9 +11,10 @@ public class TowerManagementUI : MonoBehaviour
 
     public void BuyTower()
     {
-        if(TowerBase.isSpawned == false)
+        if(TowerBase != null &&TowerBase.isSpawned == false && PlayerStatManager.Instance.Mp >= TowerSpawnManager.Instance.TowerPrice)
         {
             GameObject towerObj = Instantiate(TowerSpawnManager.Instance.Spawn(), TowerBase.transform.position, Quaternion.identity);
+            PlayerStatManager.Instance.ConsumeMp();
             towerObj.transform.parent = TowerBase.transform.GetChild(0);
             TowerBase.isSpawned = true;
         }

@@ -4593,6 +4593,7 @@ MonoBehaviour:
   - {fileID: 8051029930585958854, guid: bc3c7d098f1c1e34aa3a2bc51d15d81f, type: 3}
   - {fileID: 6119258924074306932, guid: 648a06a6580c5dc4cbbfe42b2f5bb82c, type: 3}
   - {fileID: 1444478776293993739, guid: 4143d7b31dbc690499758413206d215f, type: 3}
+  TowerPrice: 30
 --- !u!4 &1929879535
 Transform:
   m_ObjectHideFlags: 0

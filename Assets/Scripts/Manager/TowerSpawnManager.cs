@@ -8,6 +8,7 @@ public class TowerSpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] towers;
     Dictionary<E_TowerType, Queue<GameObject>> towerDic = new Dictionary<E_TowerType, Queue<GameObject>>();
     private int towerCount;
+    [SerializeField] public int TowerPrice;
     private void Awake()
     {
         if (Instance == null)

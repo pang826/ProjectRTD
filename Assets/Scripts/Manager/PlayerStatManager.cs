@@ -44,4 +44,16 @@ public class PlayerStatManager : MonoBehaviour
         }
     }
 
+    public void ConsumeMp()
+    {
+        if(mp >= TowerSpawnManager.Instance.TowerPrice)
+        {
+            mp -= TowerSpawnManager.Instance.TowerPrice;
+            OnChangeMP.Invoke();
+        }
+        else
+        {
+            Debug.LogError("마나가 부족합니다");
+        }
+    }
 }
