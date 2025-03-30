@@ -8,6 +8,8 @@ public class PlayerStatManager : MonoBehaviour
     public static PlayerStatManager Instance;
     private int hp = 10;
     public int Hp {  get { return hp; } }
+    private int maxHp = 10;
+    public int MaxHp { get { return maxHp; } }
     private int mp = 20;
     public int Mp { get { return mp; }  }
     private int maxMp = 100;
@@ -15,7 +17,8 @@ public class PlayerStatManager : MonoBehaviour
     public int mpBoost = 1;
     private float curTime = 0;
 
-    public UnityAction OnChangeMP;
+    public UnityAction OnChangeHp;
+    public UnityAction OnChangeMp;
 
     private void Awake()
     {
@@ -39,7 +42,7 @@ public class PlayerStatManager : MonoBehaviour
             {
                 mp++;
                 curTime = 0;
-                OnChangeMP?.Invoke();
+                OnChangeMp?.Invoke();
             }
         }
     }
@@ -49,7 +52,7 @@ public class PlayerStatManager : MonoBehaviour
         if(mp >= TowerSpawnManager.Instance.TowerPrice)
         {
             mp -= TowerSpawnManager.Instance.TowerPrice;
-            OnChangeMP.Invoke();
+            OnChangeMp.Invoke();
         }
         else
         {

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ManaUI : MonoBehaviour
+public class MPUI : MonoBehaviour
 {
     private Image mpBar;
     private TextMeshProUGUI mpText;
@@ -15,7 +15,7 @@ public class ManaUI : MonoBehaviour
     }
     private void Start()
     {
-        PlayerStatManager.Instance.OnChangeMP += UpdateMPBar;
+        PlayerStatManager.Instance.OnChangeMp += UpdateMPBar;
     }
 
     private void UpdateMPBar()
