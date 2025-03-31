@@ -64,6 +64,21 @@ public class AStarManager : MonoBehaviour
         return neighbors;
     }
 
+    // 유니티의 WorldPosition으로부터 그리드 상의 노드를 찾는 함수
+    public ANode GetNodeFromWorldPoint(Vector3 worldPos)
+    {
+        float percentX = (worldPos.x + worldSize.x / 2) / worldSize.x;
+        float percentY = (worldPos.z + worldSize.y / 2) / worldSize.y;
+
+        //Mathf.Clamp01 => 0과 1사이에 없다면 0과 1로 반환
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
+
+        int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);   
+        int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        return grid[x, y];
+
+    }
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(worldSize.x, 1, worldSize.y));
