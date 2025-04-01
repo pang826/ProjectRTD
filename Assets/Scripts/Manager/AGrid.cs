@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class AStarManager : MonoBehaviour
+public class AGrid : MonoBehaviour
 {
     [SerializeField] private LayerMask unWalkableMask;
     [SerializeField] private Vector2 worldSize;
@@ -14,7 +14,7 @@ public class AStarManager : MonoBehaviour
     private int gridSizeX;
     private int gridSizeY;
 
-    private void Start()
+    private void Awake()
     {
         diameter = radius * 2;
         gridSizeX = Mathf.RoundToInt(worldSize.x / diameter);
@@ -32,7 +32,7 @@ public class AStarManager : MonoBehaviour
             for(int j = 0; j < gridSizeY; j++)
             {
                 point = leftBottom + Vector3.right * (i * diameter + radius) + Vector3.forward * (j *  diameter + radius);
-                bool isWalkable = !Physics.CheckSphere(point, radius, unWalkableMask);
+                bool isWalkable = !(Physics.CheckSphere(point, radius, unWalkableMask));
                 grid[i, j] = new ANode(isWalkable, point, i, j);
             }
         }
@@ -76,6 +76,7 @@ public class AStarManager : MonoBehaviour
 
         int x = Mathf.RoundToInt((gridSizeX - 1) * percentX);   
         int y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        
         return grid[x, y];
 
     }
