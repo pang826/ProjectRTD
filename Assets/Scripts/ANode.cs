@@ -8,6 +8,10 @@ public class ANode
     public Vector3 worldPos;
     public int gridX;
     public int gridY;
+
+    public int gCost;
+    public int hCost;
+    public ANode parentNode;
     public ANode(bool isWalkAble, Vector3 worldPos, int gridX, int gridY)
     {
         this.isWalkAble = isWalkAble;
@@ -15,4 +19,6 @@ public class ANode
         this.gridX = gridX;
         this.gridY = gridY;
     }
+
+    public int FCost { get { return gCost + hCost; } }
 }
