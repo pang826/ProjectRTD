@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public Monster monsterData;
     public Transform target;
-    [SerializeField] private float speed = 20;
+    [SerializeField] private float speed;
     Vector3[] path;
     private int targetIndex;
 
     private void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Target").transform;
+        speed = monsterData.MData[0].Speed;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)

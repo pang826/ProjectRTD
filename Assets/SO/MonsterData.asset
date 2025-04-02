@@ -16,9 +16,12 @@ MonoBehaviour:
   - Name: firstMon
     Hp: 3
     Speed: 1
+    Prefab: {fileID: 7615851355608933860, guid: 6dc796fc9b9a3b040a1bf9d185cad42c, type: 3}
   - Name: secondMon
-    Hp: 5
+    Hp: 4
     Speed: 2
+    Prefab: {fileID: 7615851355608933860, guid: 6dc796fc9b9a3b040a1bf9d185cad42c, type: 3}
   - Name: thirdMon
-    Hp: 7
+    Hp: 5
     Speed: 3
+    Prefab: {fileID: 7615851355608933860, guid: 6dc796fc9b9a3b040a1bf9d185cad42c, type: 3}

@@ -1,4 +1,4 @@
-Name,Hp,Speed
-firstMon,3,1
-secondMon,5,2
-thirdMon,7,3
+Name,Hp,Speed,PrefabPath
+firstMon,3,1,Monsters/Enemy
+secondMon,4,2,Monsters/Enemy
+thirdMon,5,3,Monsters/Enemy

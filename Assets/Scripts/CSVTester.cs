@@ -14,36 +14,21 @@ public class CSVTester : MonoBehaviour
         string[] csvText = File.ReadAllLines(Application.dataPath + filePath);
         Monster mData = ScriptableObject.CreateInstance<Monster>();
 
-        //foreach(string csv in csvText)
-        //{
-        //    string[] stats = csv.Split(',');
-        //    if(stats.Length != 3)
-        //    {
-        //        Debug.LogError("데이터가 3개 이하");
-        //    }
-        //
-        //    MonsterData monsterData = new MonsterData();
-        //
-        //    monsterData.Name = stats[0];
-        //    monsterData.Hp = int.Parse(stats[1]);
-        //    monsterData.Speed = float.Parse(stats[2]);
-        //
-        //    mData.MData.Add(monsterData);
-        //}
-
         for(int i = 1; i < csvText.Length; i++)
         {
-            string[] stats = csvText[i].Split(",");
+            string[] stats = csvText[i].Split(',');
 
             MonsterData monsterData = new MonsterData();
 
             monsterData.Name = stats[0];
             monsterData.Hp = int.Parse(stats[1]);
             monsterData.Speed = float.Parse(stats[2]);
+            monsterData.Prefab = Resources.Load<GameObject>(stats[3]);
 
             mData.MData.Add(monsterData);
         }
         AssetDatabase.CreateAsset(mData, "Assets/SO/MonsterData.asset");
         AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 }
