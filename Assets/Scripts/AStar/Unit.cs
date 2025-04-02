@@ -15,10 +15,8 @@ public class Unit : MonoBehaviour
     }
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
-        Debug.Log("§ª");
         if (pathSuccessful)
         {
-            Debug.Log("§∑");
             path = newPath;
             StopCoroutine("FollowPath");
             StartCoroutine("FollowPath");
@@ -31,7 +29,6 @@ public class Unit : MonoBehaviour
         Debug.Log(curWayPoint);
         while(true)
         {
-            Debug.Log("¿Ãµø");
             if (transform.position == curWayPoint)
             {
                 targetIndex++;

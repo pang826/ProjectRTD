@@ -10,7 +10,7 @@ public class PlayerStatManager : MonoBehaviour
     public int Hp {  get { return hp; } }
     private int maxHp = 10;
     public int MaxHp { get { return maxHp; } }
-    private int mp = 20;
+    private int mp = 30;
     public int Mp { get { return mp; }  }
     private int maxMp = 100;
     public int MaxMp { get { return maxMp; } }
