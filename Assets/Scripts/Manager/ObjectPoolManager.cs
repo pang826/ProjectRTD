@@ -40,21 +40,30 @@ public class ObjectPoolManager : MonoBehaviour
         if (dict[type].Count > 0)
         {
             getObj = dict[type].Dequeue();
+            Debug.Log("발사");
         }
         else
         {
             getObj = Instantiate(this.obj[(int)type - 1]);
         }
         getObj.transform.parent = null;
-        getObj.transform.position = transform.position;
+        getObj.transform.position = transform.position + new Vector3(0, 1, 0);
         getObj.gameObject.SetActive(true);
         return getObj;
     }
 
     public void ReturnObject(E_PoolType type, GameObject obj) 
     {
-        obj.transform.parent = transform;
         obj.gameObject.SetActive(false);
+        if(obj.gameObject.activeSelf)
+        {
+            Debug.Log("비활성화");
+        }
+        else
+        {
+            Debug.Log("비활성화 안됨");
+        }
+        obj.transform.parent = transform;
         dict[type].Enqueue(obj);
     }
 }

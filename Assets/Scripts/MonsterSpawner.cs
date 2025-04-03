@@ -18,7 +18,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         while(curCount < spawnCount)
         {
-            SpawnMonster(mData.MData[wave].Name, spawnPos.position);
+            SpawnMonster(wave, mData.MData[wave].Name, spawnPos.position);
             curCount++;
             yield return new WaitForSeconds(spawnInterval);
         }
@@ -27,10 +27,11 @@ public class MonsterSpawner : MonoBehaviour
         wave++;
         yield break;
     }
-    public void SpawnMonster(string name, Vector3 pos)
+    public void SpawnMonster(int num, string name, Vector3 pos)
     {
-        MonsterData monsterData = mData.MData.Find(e => e.Name == name);
+        List<MonsterData> monsterData = mData.MData;
         
-        GameObject monster = Instantiate(monsterData.Prefab, pos, Quaternion.identity);
+        GameObject monster = Instantiate(monsterData[num].Prefab, pos, Quaternion.identity);
+        monster.GetComponent<Unit>().SetData(monsterData[num]);
     }
 }

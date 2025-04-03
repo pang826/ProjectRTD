@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: 0d5f4b6103bb13b4eaa5e6afdf7860c0, type: 2}
   target: {fileID: 0}
+  hp: 0
   speed: 0
 --- !u!33 &7615851355608933865
 MeshFilter:

@@ -5,12 +5,19 @@ using UnityEngine;
 public abstract class Bullet : MonoBehaviour
 {
     public Tower Tower;
+    [SerializeField] protected Vector3 targetPos;
     protected E_PoolType poolType;
+    protected int damage;
     public abstract void Move();
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("삭제");    
-        ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
+        if(collision.gameObject.layer == 3)
+        {
+            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            damageable.TakeDamage(damage);
+            Debug.Log("삭제");
+            ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
+        }
     }
 }
