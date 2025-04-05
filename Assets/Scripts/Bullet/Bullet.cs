@@ -8,6 +8,10 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected Vector3 targetPos;
     protected E_PoolType poolType;
     protected int damage;
+    private void Awake()
+    {
+        targetPos = new Vector3(1, 1, 1);
+    }
     public abstract void Move();
 
     private void OnCollisionEnter(Collision collision)
@@ -16,7 +20,6 @@ public abstract class Bullet : MonoBehaviour
         {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
             damageable.TakeDamage(damage);
-            Debug.Log("ªË¡¶");
             ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
         }
     }

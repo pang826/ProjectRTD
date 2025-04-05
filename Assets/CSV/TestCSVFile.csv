@@ -1,4 +1,6 @@
 Name,Hp,Speed,PrefabPath
-firstMon,3,1,Monsters/Enemy
-secondMon,4,2,Monsters/Enemy
-thirdMon,5,3,Monsters/Enemy
+Wave1,3,1,Monsters/Wave1
+Wave2,5,2,Monsters/Wave2
+Wave3,7,3,Monsters/Wave3
+Wave4,10,5,Monsters/Wave4
+Wave5,100,5,Monsters/Wave5

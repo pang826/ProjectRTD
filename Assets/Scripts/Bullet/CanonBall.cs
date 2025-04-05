@@ -11,9 +11,10 @@ public class CanonBall : Bullet
     }
     private void OnEnable()
     {
-        if (targetPos == null)
+        if (targetPos == Vector3.zero)
             targetPos = Tower.enemy.transform.position;
     }
+
     private void Update()
     {
         Move();
@@ -22,14 +23,12 @@ public class CanonBall : Bullet
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 5);
         transform.LookAt(targetPos);
-
         StartCoroutine(DeleteRoutine());
-
     }
-
     IEnumerator DeleteRoutine()
     {
         yield return new WaitForSeconds(3);
+        targetPos = Vector3.zero;
         ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
     }
 }

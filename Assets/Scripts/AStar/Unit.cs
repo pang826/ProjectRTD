@@ -11,11 +11,11 @@ public class Unit : MonoBehaviour, IDamageable
     Vector3[] path;
     private int targetIndex;
 
-    private void Start()
+    private void OnEnable()
     {
         target = GameObject.FindGameObjectWithTag("Target").transform;
-        hp = monsterData.MData[0].Hp;
-        speed = monsterData.MData[0].Speed;
+        hp = monsterData.MData[GameManager.Instance.Round].Hp;
+        speed = monsterData.MData[GameManager.Instance.Round].Speed;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
@@ -31,6 +31,7 @@ public class Unit : MonoBehaviour, IDamageable
 
         if(hp <= 0)
         {
+            GameManager.Instance.OnChangeCurMonsterCount.Invoke();
             Destroy(gameObject);
         }
     }
@@ -47,7 +48,6 @@ public class Unit : MonoBehaviour, IDamageable
     IEnumerator FollowPath()
     {
         Vector3 curWayPoint = path[0];
-        Debug.Log(curWayPoint);
         while(true)
         {
             if (transform.position == curWayPoint)

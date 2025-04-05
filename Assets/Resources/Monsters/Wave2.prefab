@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7615851355608933867}
   - component: {fileID: 7615851355608933866}
   m_Layer: 3
-  m_Name: secondMon
+  m_Name: Wave2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,5 +112,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}

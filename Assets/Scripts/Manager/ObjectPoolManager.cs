@@ -40,7 +40,6 @@ public class ObjectPoolManager : MonoBehaviour
         if (dict[type].Count > 0)
         {
             getObj = dict[type].Dequeue();
-            Debug.Log("발사");
         }
         else
         {
@@ -55,14 +54,6 @@ public class ObjectPoolManager : MonoBehaviour
     public void ReturnObject(E_PoolType type, GameObject obj) 
     {
         obj.gameObject.SetActive(false);
-        if(obj.gameObject.activeSelf)
-        {
-            Debug.Log("비활성화");
-        }
-        else
-        {
-            Debug.Log("비활성화 안됨");
-        }
         obj.transform.parent = transform;
         dict[type].Enqueue(obj);
     }

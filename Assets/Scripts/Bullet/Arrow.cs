@@ -13,9 +13,11 @@ public class Arrow : Bullet
     }
     private void OnEnable()
     {
-        if (targetPos == null)
+        Debug.Log(targetPos);
+        if (targetPos == Vector3.zero)
             targetPos = Tower.enemy.transform.position;
     }
+
     private void Update()
     {
         Move();
@@ -29,6 +31,7 @@ public class Arrow : Bullet
     IEnumerator DeleteRoutine()
     {
         yield return new WaitForSeconds(3);
+        targetPos = Vector3.zero;
         ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
     }
 }
