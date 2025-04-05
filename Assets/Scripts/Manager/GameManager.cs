@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int stage = 1;
     public int Stage { get { return stage; } }
-    [SerializeField]
     private int round = 1;
     public int Round { get { return round; } }
     [SerializeField]
@@ -41,15 +40,17 @@ public class GameManager : MonoBehaviour
         }
         curMonsterCount = monsterCount;
         mCount = monsterCount;
+        OnIncreaseRound += IncreaseRound;
+        OnChangeCurMonsterCount += ChangeCurMonsterCount;
     }
 
     private void Start()
     {
-        OnIncreaseRound += IncreaseRound;
-        OnChangeCurMonsterCount += ChangeCurMonsterCount;
+        
     }
     private void Update()
     {
+        Debug.Log(round);
     }
 
     private void IncreaseRound() 
@@ -60,14 +61,24 @@ public class GameManager : MonoBehaviour
             monsterCount = mCount;
             curMonsterCount = mCount;
         }
-        else { monsterCount = 1; }
+        else if(round == 5)
+        { 
+            monsterCount = 1;
+            curMonsterCount = 1;
+        }
     }
     private void ChangeCurMonsterCount() 
     { 
         curMonsterCount--;
         if(curMonsterCount == 0) 
         {
-            OnIncreaseRound.Invoke();
+            StartCoroutine(StartRoundRoutine());
         }
+    }
+
+    IEnumerator StartRoundRoutine()
+    {
+        yield return new WaitForSeconds(5);
+        OnIncreaseRound.Invoke();
     }
 }

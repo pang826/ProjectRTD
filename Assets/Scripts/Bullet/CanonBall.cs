@@ -6,12 +6,12 @@ public class CanonBall : Bullet
     private void Start()
     {
         poolType = E_PoolType.MagicBall;
-        damage = 3;
+        damage = 5;
         targetPos = Tower.enemy.transform.position;
     }
     private void OnEnable()
     {
-        if (targetPos == Vector3.zero)
+        if (targetPos == Vector3.zero && gameObject != null)
             targetPos = Tower.enemy.transform.position;
     }
 

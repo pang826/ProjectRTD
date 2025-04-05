@@ -10,12 +10,13 @@ public class Unit : MonoBehaviour, IDamageable
     [SerializeField] private float speed;
     Vector3[] path;
     private int targetIndex;
+    private Coroutine routine;
 
     private void OnEnable()
     {
         target = GameObject.FindGameObjectWithTag("Target").transform;
-        hp = monsterData.MData[GameManager.Instance.Round].Hp;
-        speed = monsterData.MData[GameManager.Instance.Round].Speed;
+        hp = monsterData.MData[GameManager.Instance.Round - 1].Hp;
+        speed = monsterData.MData[GameManager.Instance.Round - 1].Speed;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
@@ -37,11 +38,17 @@ public class Unit : MonoBehaviour, IDamageable
     }
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {
+        if (this == null || gameObject == null) return;
+
         if (pathSuccessful)
         {
             path = newPath;
-            StopCoroutine("FollowPath");
-            StartCoroutine("FollowPath");
+            if(routine != null) 
+            {
+                StopCoroutine(FollowPath());
+            }
+            
+            routine = StartCoroutine(FollowPath());
         }
     }
 

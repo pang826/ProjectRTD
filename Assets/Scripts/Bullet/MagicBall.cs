@@ -7,12 +7,12 @@ public class MagicBall : Bullet
     private void Start()
     {
         poolType = E_PoolType.MagicBall;
-        damage = 2;
+        damage = 3;
         targetPos = Tower.enemy.transform.position;
     }
     private void OnEnable()
     {
-        if (targetPos == Vector3.zero)
+        if (targetPos == Vector3.zero && gameObject != null)
             targetPos = Tower.enemy.transform.position;
     }
 

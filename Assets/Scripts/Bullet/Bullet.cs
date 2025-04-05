@@ -14,11 +14,12 @@ public abstract class Bullet : MonoBehaviour
     }
     public abstract void Move();
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.layer == 3)
+        if (other.gameObject.layer == 3)
         {
-            IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
             damageable.TakeDamage(damage);
             ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
         }

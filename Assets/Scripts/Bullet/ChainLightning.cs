@@ -12,7 +12,7 @@ public class ChainLightning : Bullet
     }
     private void OnEnable()
     {
-        if (targetPos == Vector3.zero)
+        if (targetPos == Vector3.zero && gameObject != null)
             targetPos = Tower.enemy.transform.position;
     }
 

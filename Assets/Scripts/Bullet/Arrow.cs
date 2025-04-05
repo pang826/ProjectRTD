@@ -13,8 +13,7 @@ public class Arrow : Bullet
     }
     private void OnEnable()
     {
-        Debug.Log(targetPos);
-        if (targetPos == Vector3.zero)
+        if (targetPos == Vector3.zero && gameObject != null)
             targetPos = Tower.enemy.transform.position;
     }
 
@@ -24,7 +23,7 @@ public class Arrow : Bullet
     }
     public override void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 5);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 8);
         transform.LookAt(targetPos);
         StartCoroutine(DeleteRoutine());
     }

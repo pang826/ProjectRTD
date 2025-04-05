@@ -10,12 +10,14 @@ public class MonsterSpawner : MonoBehaviour
     private int wave;
     private int curCount;
     private bool isSpawn;
+
     private void Start()
     {
-        wave = GameManager.Instance.Round;
+        wave = GameManager.Instance.Round - 1;
         curCount = GameManager.Instance.MonsterCount;
         StartCoroutine(SpawnRoutine());
         GameManager.Instance.OnIncreaseRound += ChangeMCount;
+        Debug.Log(wave);
     }
 
     private void ChangeMCount()
@@ -26,10 +28,11 @@ public class MonsterSpawner : MonoBehaviour
     }
     IEnumerator SpawnRoutine()
     {
+        yield return new WaitForSeconds(1f);
         while(curCount > 0 && isSpawn == false)
         {
             isSpawn = true;
-            SpawnMonster(wave, mData.MData[wave].Name, spawnPos.position);
+            SpawnMonster(wave, spawnPos.position);
             curCount--;
             yield return new WaitForSeconds(spawnInterval);
             isSpawn = false;
@@ -37,7 +40,7 @@ public class MonsterSpawner : MonoBehaviour
         Debug.Log("웨이브 종료");
         yield break;
     }
-    public void SpawnMonster(int num, string name, Vector3 pos)
+    public void SpawnMonster(int num, Vector3 pos)
     {
         List<MonsterData> monsterData = mData.MData;
         

@@ -30,7 +30,7 @@ public class ArcherTower : Tower
     {
         if (isAttack == false)
         {
-            GameObject obj = ObjectPoolManager.Instance.GetObject(poolType, transform);
+            GameObject obj = ObjectPoolManager.Instance.GetObject(this.poolType, transform);
             obj.GetComponent<Bullet>().Tower = child;
         }
         base.Attack(child);
