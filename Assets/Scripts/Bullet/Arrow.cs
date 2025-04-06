@@ -9,12 +9,10 @@ public class Arrow : Bullet
     {
         poolType = E_PoolType.Arrow;
         damage = 1;
-        targetPos = Tower.enemy.transform.position;
     }
     private void OnEnable()
     {
-        if (targetPos == Vector3.zero && gameObject != null)
-            targetPos = Tower.enemy.transform.position;
+        StartCoroutine(DeleteRoutine());
     }
 
     private void Update()
@@ -25,12 +23,12 @@ public class Arrow : Bullet
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 8);
         transform.LookAt(targetPos);
-        StartCoroutine(DeleteRoutine());
     }
     IEnumerator DeleteRoutine()
     {
-        yield return new WaitForSeconds(3);
         targetPos = Vector3.zero;
-        ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
+        yield return new WaitForSeconds(3);
+        
+        ObjectPoolManager.Instance.ReturnObject(this.poolType, gameObject);
     }
 }

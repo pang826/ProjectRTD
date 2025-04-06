@@ -8,12 +8,10 @@ public class MagicBall : Bullet
     {
         poolType = E_PoolType.MagicBall;
         damage = 3;
-        targetPos = Tower.enemy.transform.position;
     }
     private void OnEnable()
     {
-        if (targetPos == Vector3.zero && gameObject != null)
-            targetPos = Tower.enemy.transform.position;
+        StartCoroutine(DeleteRoutine());
     }
 
     private void Update()
@@ -24,12 +22,12 @@ public class MagicBall : Bullet
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 5);
         transform.LookAt(targetPos);
-        StartCoroutine(DeleteRoutine());
     }
     IEnumerator DeleteRoutine()
     {
-        yield return new WaitForSeconds(3);
         targetPos = Vector3.zero;
-        ObjectPoolManager.Instance.ReturnObject(poolType, gameObject);
+        yield return new WaitForSeconds(3);
+        
+        ObjectPoolManager.Instance.ReturnObject(this.poolType, gameObject);
     }
 }
