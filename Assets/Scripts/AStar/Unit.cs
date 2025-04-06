@@ -14,7 +14,7 @@ public class Unit : MonoBehaviour, IDamageable
 
     private void OnEnable()
     {
-        target = GameObject.FindGameObjectWithTag("Target").transform;
+        target = GameObject.FindGameObjectWithTag("EndPos").transform;
         hp = monsterData.MData[GameManager.Instance.Round - 1].Hp;
         speed = monsterData.MData[GameManager.Instance.Round - 1].Speed;
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
@@ -32,9 +32,16 @@ public class Unit : MonoBehaviour, IDamageable
 
         if(hp <= 0)
         {
-            GameManager.Instance.OnChangeCurMonsterCount.Invoke();
+            GameManager.Instance.OnChangeCurMonsterCount?.Invoke();
             Destroy(gameObject);
         }
+    }
+
+    public void AttachEndPos()
+    {
+        PlayerStatManager.Instance.OnAttachEndPos?.Invoke();
+        GameManager.Instance.OnChangeCurMonsterCount?.Invoke();
+        Destroy(gameObject);
     }
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
     {

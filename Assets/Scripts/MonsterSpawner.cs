@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
@@ -10,6 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     private int wave;
     private int curCount;
     private bool isSpawn;
+    
 
     private void Start()
     {
@@ -17,12 +19,13 @@ public class MonsterSpawner : MonoBehaviour
         curCount = GameManager.Instance.MonsterCount;
         StartCoroutine(SpawnRoutine());
         GameManager.Instance.OnIncreaseRound += ChangeMCount;
-        Debug.Log(wave);
     }
 
     private void ChangeMCount()
     {
-        wave = GameManager.Instance.Round;
+        if (GameManager.Instance.Round > GameManager.Instance.BossRound ||
+            PlayerStatManager.Instance.Hp <= 0) return;
+        wave = GameManager.Instance.Round - 1;
         curCount = GameManager.Instance.MonsterCount;
         StartCoroutine(SpawnRoutine());
     }

@@ -19,6 +19,7 @@ public class PlayerStatManager : MonoBehaviour
 
     public UnityAction OnChangeHp;
     public UnityAction OnChangeMp;
+    public UnityAction OnAttachEndPos;              // 적 목표지점 도착
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class PlayerStatManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        OnAttachEndPos += DecreaseHp;
     }
 
     private void Update()
@@ -52,11 +54,21 @@ public class PlayerStatManager : MonoBehaviour
         if(mp >= TowerSpawnManager.Instance.TowerPrice)
         {
             mp -= TowerSpawnManager.Instance.TowerPrice;
-            OnChangeMp.Invoke();
+            OnChangeMp?.Invoke();
         }
         else
         {
             Debug.LogError("마나가 부족합니다");
+        }
+    }
+
+    public void DecreaseHp()
+    {
+        hp--;
+        OnChangeHp?.Invoke();
+        if(hp <= 0)
+        {
+            GameManager.Instance.OnStageDefeat?.Invoke();
         }
     }
 }

@@ -15,11 +15,11 @@ MonoBehaviour:
   MData:
   - Name: Wave1
     Hp: 3
-    Speed: 1
+    Speed: 2
     Prefab: {fileID: 7615851355608933860, guid: 6dc796fc9b9a3b040a1bf9d185cad42c, type: 3}
   - Name: Wave2
     Hp: 5
-    Speed: 2
+    Speed: 3
     Prefab: {fileID: 7615851355608933860, guid: 4a307cea3e629e749828c6ad137d27d7, type: 3}
   - Name: Wave3
     Hp: 7
@@ -30,6 +30,6 @@ MonoBehaviour:
     Speed: 5
     Prefab: {fileID: 7615851355608933860, guid: 754221f4db3d56a428ee0e9335126cae, type: 3}
   - Name: Wave5
-    Hp: 100
+    Hp: 50
     Speed: 5
     Prefab: {fileID: 7615851355608933860, guid: 28fd0f448736f1842866dd421a410195, type: 3}
