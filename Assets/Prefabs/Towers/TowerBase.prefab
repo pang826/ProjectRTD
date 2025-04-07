@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1502815137303802107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.39, y: 0.235, z: 2.15}
-  m_LocalScale: {x: 3, y: 0.5, z: 3}
+  m_LocalScale: {x: 2.5, y: 2.0030308, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1502815138351782924}
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerSocket: {fileID: 0}
   towerManagementUI: {fileID: 0}
+  isSpawned: 0
 --- !u!33 &1502815137303802111
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502815138351782925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

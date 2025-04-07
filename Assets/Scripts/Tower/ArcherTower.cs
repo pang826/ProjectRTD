@@ -15,6 +15,7 @@ public class ArcherTower : Tower
     }
     private void Update()
     {
+        
         enemys = Physics.OverlapSphere(transform.position, range, 1 << 3);
         if (enemys.Length > 0)
         {
@@ -23,6 +24,8 @@ public class ArcherTower : Tower
             enemy = enemys[0].gameObject;
             Attack(this);
         }
+        if(enemy != null)
+        transform.LookAt(enemy.transform.position);
     }
 
 
