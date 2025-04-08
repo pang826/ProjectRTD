@@ -30,4 +30,14 @@ public class MagicBall : Bullet
         
         ObjectPoolManager.Instance.ReturnObject(this.poolType, gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 3)
+        {
+            Unit unit = other.gameObject.GetComponent<Unit>();
+            unit.SlowEffect(0.5f, 1f);
+            base.OnTriggerEnter(other);
+        }
+    }
 }

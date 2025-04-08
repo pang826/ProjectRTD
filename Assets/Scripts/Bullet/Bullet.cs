@@ -22,7 +22,7 @@ public abstract class Bullet : MonoBehaviour
     public abstract void Move();
 
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 3)
         {
