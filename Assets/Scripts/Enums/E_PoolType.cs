@@ -7,6 +7,5 @@ public enum E_PoolType
     None = 0,
     Arrow ,
     MagicBall,
-    CanonBall,
-    ChainLightning
+    CanonBall
 }

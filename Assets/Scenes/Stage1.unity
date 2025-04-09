@@ -4376,6 +4376,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3909888373858751284, guid: 5b667a8ebbab17842b8001b075498f5b, type: 3}
+      propertyPath: towers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909888373858751284, guid: 5b667a8ebbab17842b8001b075498f5b, type: 3}
+      propertyPath: towers.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3909888373858751285, guid: 5b667a8ebbab17842b8001b075498f5b, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -4537,6 +4545,10 @@ PrefabInstance:
     - target: {fileID: 5787769592774928884, guid: 1e97353540be5f548ac487f2bd77d152, type: 3}
       propertyPath: m_Name
       value: ObjectPoolManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787769592774928885, guid: 1e97353540be5f548ac487f2bd77d152, type: 3}
+      propertyPath: obj.Array.size
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e97353540be5f548ac487f2bd77d152, type: 3}
