@@ -1,49 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TowerBase : MonoBehaviour, IPointerClickHandler, IPointerDownHandler
+public class TowerBase : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Transform towerSocket;
     [SerializeField] private TowerManagementUI towerManagementUI;
     private bool isEmissionOn;
     public bool isSpawned;
+    private Transform gfx;
+
     private void Awake()
     {
         towerSocket = transform.GetChild(0);
+        gfx = transform.GetChild(1);
         towerManagementUI = GameObject.FindGameObjectWithTag("TowerUI").GetComponent<TowerManagementUI>();
     }
+
     private void Update()
     {
-        if(isEmissionOn == true && Input.GetMouseButtonDown(0) &&
-            RectTransformUtility.RectangleContainsScreenPoint(towerManagementUI.gameObject.GetComponent<RectTransform>(), Input.mousePosition) == false)
+        if (isEmissionOn && Input.GetMouseButtonDown(0) &&
+            !RectTransformUtility.RectangleContainsScreenPoint(towerManagementUI.GetComponent<RectTransform>(), Input.mousePosition))
         {
             isEmissionOn = false;
-            GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+            SetEmission(false);
             towerManagementUI.TowerBase = null;
         }
     }
-    public void OnPointerDown(PointerEventData eventData)
-    {
 
-    }
     public void OnPointerClick(PointerEventData data)
     {
         Debug.Log("Å¬¸¯");
-        if (isEmissionOn == false)
+
+        isEmissionOn = !isEmissionOn;
+        SetEmission(isEmissionOn);
+        towerManagementUI.TowerBase = isEmissionOn ? this : null;
+    }
+
+    private void SetEmission(bool enable)
+    {
+        foreach (MeshRenderer renderer in gfx.GetComponentsInChildren<MeshRenderer>())
         {
-            isEmissionOn = true;
-            GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            towerManagementUI.TowerBase = this;
-        }
-        else if(isEmissionOn == true)
-        {
-            isEmissionOn = false;
-            GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
-            towerManagementUI.TowerBase = null;
+            if (enable)
+                renderer.material.EnableKeyword("_EMISSION");
+            else
+                renderer.material.DisableKeyword("_EMISSION");
         }
     }
 }
