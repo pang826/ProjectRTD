@@ -24,8 +24,6 @@ public class ArcherTower : Tower
             enemy = enemys[0].gameObject;
             Attack(this);
         }
-        if(enemy != null)
-        transform.LookAt(enemy.transform.position);
     }
 
 

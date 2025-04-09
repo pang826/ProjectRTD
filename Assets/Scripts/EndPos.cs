@@ -8,7 +8,8 @@ public class EndPos : MonoBehaviour
     {
         if(other.gameObject.layer == 3)
         {
-            if(other.gameObject.TryGetComponent<Boss>(out Boss boss))
+            Debug.Log("몬스터 도달");
+            if (other.gameObject.TryGetComponent<Boss>(out Boss boss))
             {
                 Debug.Log("보스 도달");
                 GameManager.Instance.IsClear = false;

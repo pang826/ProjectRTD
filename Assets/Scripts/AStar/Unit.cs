@@ -99,9 +99,14 @@ public class Unit : MonoBehaviour, IDamageable
         speed = initSpeed;
     }
 
-    public void SlowEffect(float decreaseSpeedPercent, float time)
+    /// <summary>
+    /// 유닛 이동속도 조절 메서드
+    /// </summary>
+    /// <param name="SpeedPercent">속도 비율</param>
+    /// <param name="time">슬로우 지속 시간</param>
+    public void SetSpeedEffect(float SpeedPercent, float time)
     {
-        StartCoroutine(SlowRoutine(decreaseSpeedPercent, time));
+        StartCoroutine(SlowRoutine(SpeedPercent, time));
     }
 
     IEnumerator SlowRoutine(float decreaseSpeedPercent, float time)

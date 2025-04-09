@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     public UnityAction OnChangeStage;
     public UnityAction OnIncreaseRound;             // 라운드 상승
     public UnityAction OnChangeCurMonsterCount;     // 현재 몬스터 수 변화
-    public UnityAction OnStageClear;                  // 현재 스테이지 클리어
-    public UnityAction OnStageDefeat;                  // 현재 스테이지 실패
+    public UnityAction OnStageClear;                // 현재 스테이지 클리어
+    public UnityAction OnStageDefeat;               // 현재 스테이지 실패
     
 
     private void Awake()
