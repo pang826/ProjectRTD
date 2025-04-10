@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5237596514192448547}
   - component: {fileID: 5237596514192448546}
+  - component: {fileID: 8958511804066666358}
   m_Layer: 0
   m_Name: ArcherTower
   m_TagString: Untagged
@@ -51,6 +52,28 @@ MonoBehaviour:
   enemy: {fileID: 0}
   poolType: 0
   Damage: 0
+  anim: {fileID: 0}
+--- !u!95 &8958511804066666358
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237596514192448556}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1c7a7c88b6c2fce41ba91d527bef5726, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5237596514478609892
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,11 +170,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100040, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400040, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400040, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400040, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 400040, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,11 +228,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400040, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1c7a7c88b6c2fce41ba91d527bef5726, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2dfc7e76293c2fe4393a1903174931ea, type: 3}
 --- !u!4 &1105124692396946875 stripped
 Transform:
@@ -214,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5921e45280d702e44ad0fb582ac16d26, type: 3}
       propertyPath: m_Name
       value: Tower_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5921e45280d702e44ad0fb582ac16d26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5921e45280d702e44ad0fb582ac16d26, type: 3}
       propertyPath: m_RootOrder

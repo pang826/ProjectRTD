@@ -32,8 +32,6 @@ public class TowerBase : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData data)
     {
-        Debug.Log("Å¬¸¯");
-
         isEmissionOn = !isEmissionOn;
         SetEmission(isEmissionOn);
         towerManagementUI.TowerBase = isEmissionOn ? this : null;

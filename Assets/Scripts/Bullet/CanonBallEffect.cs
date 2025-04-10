@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CanonBallEffect : MonoBehaviour
 {
-    float time = 0.3f;
+    float time = 0.5f;
     float curTime = 0;
     private void Update()
     {

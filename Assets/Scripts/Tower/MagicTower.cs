@@ -21,6 +21,7 @@ public class MagicTower : Tower
             enemys = enemys.OrderBy(enemy => (enemy.transform.position - transform.position).sqrMagnitude).ToArray();
             // 거리가 가까운 것을 배열 첫번째 값으로 변경하면서 화살의 타겟으로 설정
             enemy = enemys[0].gameObject;
+            transform.LookAt(enemy.transform.position);
             Attack(this);
         }
     }
