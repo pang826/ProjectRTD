@@ -21,7 +21,7 @@ public class Arrow : Bullet
     }
     public override void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 10);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 15);
         transform.LookAt(targetPos);
     }
     IEnumerator DeleteRoutine()

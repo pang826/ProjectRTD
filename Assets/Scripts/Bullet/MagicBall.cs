@@ -20,7 +20,7 @@ public class MagicBall : Bullet
     }
     public override void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 5);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 8);
         transform.LookAt(targetPos);
     }
     IEnumerator DeleteRoutine()
@@ -36,7 +36,7 @@ public class MagicBall : Bullet
         if(other.gameObject.layer == 3)
         {
             Unit unit = other.gameObject.GetComponent<Unit>();
-            unit.SetSpeedEffect(0.5f, 1f);
+            unit.SetSpeedEffect(0.5f, 2f);
             base.OnTriggerEnter(other);
         }
     }
