@@ -51,6 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feabd45b6a953654fb91bb8cf7bea3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardName: 
+  cost: 0
+  description: 
+  circleAreaObj: {fileID: 1709507094168520124, guid: 7e805c01ec3ce604c8e0060c3d35ac16, type: 3}
 --- !u!222 &7083390759953486166
 CanvasRenderer:
   m_ObjectHideFlags: 0

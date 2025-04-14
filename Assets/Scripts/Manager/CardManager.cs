@@ -10,6 +10,8 @@ public class CardManager : MonoBehaviour
 
     public Dictionary<int, GameObject> cardDictionary = new Dictionary<int, GameObject>();
 
+    GameObject curObj;
+
     Transform cardTransform;
     Vector2 cardSocket;
 
@@ -40,8 +42,10 @@ public class CardManager : MonoBehaviour
 
     public void SpawnCard()
     {
-        int randNum = Random.Range(1, 3);
+        if (curObj != null) return;
+        int randNum = Random.Range(1, cardDictionary.Count + 1);
         GameObject obj = Instantiate(cardDictionary[randNum], cardSocket, Quaternion.identity);
+        curObj = obj;
         obj.transform.parent = cardTransform;
     }
 }
