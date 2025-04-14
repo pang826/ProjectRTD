@@ -4,17 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[Serializable]
-public class CardData
-{
-    public string CardName;
-    public int Cost;
-    public string Description;
-    public GameObject CardPrefab;
-}
-
-
-
 public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     [SerializeField] protected string cardName;

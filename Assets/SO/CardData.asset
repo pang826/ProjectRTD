@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: CardData
   m_EditorClassIdentifier: 
   CData:
-  - CardName: SlowCard
+  - CardNum: 1
+    CardName: SlowCard
     Cost: 1
     Description: Slow
     CardPrefab: {fileID: 7083390759953486171, guid: 57145720f513f5c42a0b70399fe23dd0, type: 3}
+  - CardNum: 2
+    CardName: DamageCard
+    Cost: 2
+    Description: Damage
+    CardPrefab: {fileID: 7083390759953486171, guid: 13d22c1e5678d5841854ee6389cfa881, type: 3}

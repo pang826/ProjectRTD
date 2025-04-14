@@ -20,10 +20,11 @@ public class CardCSV : MonoBehaviour
 
             CardData cardData = new CardData();
 
-            cardData.CardName = stats[0];
-            cardData.Cost = int.Parse(stats[1]);
-            cardData.Description = stats[2];
-            cardData.CardPrefab = Resources.Load<GameObject>(stats[3]);
+            cardData.CardNum = int.Parse(stats[0]);
+            cardData.CardName = stats[1];
+            cardData.Cost = int.Parse(stats[2]);
+            cardData.Description = stats[3];
+            cardData.CardPrefab = Resources.Load<GameObject>(stats[4]);
 
             cData.CData.Add(cardData);
         }

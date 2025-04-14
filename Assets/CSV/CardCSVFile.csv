@@ -1,2 +1,3 @@
-Name,Cost,Description,PrefabPath
-SlowCard,1,Slow,Cards/SlowCard
+Number,Name,Cost,Description,PrefabPath
+1,SlowCard,1,Slow,Cards/SlowCard
+2,DamageCard,2,Damage,Cards/DamageCard

@@ -8,7 +8,7 @@ public class CardManager : MonoBehaviour
 
     public CardSO cardSO;
 
-    public Dictionary<string, GameObject> cardDictionary = new Dictionary<string, GameObject>();
+    public Dictionary<int, GameObject> cardDictionary = new Dictionary<int, GameObject>();
 
     Transform cardTransform;
     Vector2 cardSocket;
@@ -25,7 +25,7 @@ public class CardManager : MonoBehaviour
             Destroy(gameObject);
         }
         cardTransform = GameObject.FindGameObjectWithTag("CardUI").transform;
-        cardSocket = new Vector2(-625, 0);
+        cardSocket = cardTransform.GetChild(1).transform.position;
     }
 
     private void Start()
@@ -34,13 +34,14 @@ public class CardManager : MonoBehaviour
         {
             Card card = cardSo.CardPrefab.GetComponent<Card>();
             card.Init(cardSo);
-            cardDictionary[cardSo.CardName] = cardSo.CardPrefab;
+            cardDictionary[cardSo.CardNum] = cardSo.CardPrefab;
         }
     }
 
     public void SpawnCard()
     {
-        GameObject obj = Instantiate(cardDictionary["SlowCard"], cardSocket, Quaternion.identity);
+        int randNum = Random.Range(1, 3);
+        GameObject obj = Instantiate(cardDictionary[randNum], cardSocket, Quaternion.identity);
         obj.transform.parent = cardTransform;
     }
 }
