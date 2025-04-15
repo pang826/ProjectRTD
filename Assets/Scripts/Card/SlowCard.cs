@@ -6,16 +6,21 @@ public class SlowCard : Card
 {
     private void Awake()
     {
+        cost = 3;
         radius = 5;
     }
     public override void Active()
     {
-        Collider[] colliders = Physics.OverlapSphere(curCircleObj.transform.position, radius, 1 << 3);
-        foreach (Collider collider in colliders) 
+        if(PlayerStatManager.Instance.Mp >= cost)
         {
-            if (collider.gameObject.TryGetComponent<Unit>(out Unit unit))
+            PlayerStatManager.Instance.ConsumeMP(cost);
+            Collider[] colliders = Physics.OverlapSphere(curCircleObj.transform.position, radius, 1 << 3);
+            foreach (Collider collider in colliders)
             {
-                unit.SetSpeedEffect(0.3f, 3);
+                if (collider.gameObject.TryGetComponent<Unit>(out Unit unit))
+                {
+                    unit.SetSpeedEffect(0.3f, 3);
+                }
             }
         }
     }

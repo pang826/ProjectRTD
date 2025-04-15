@@ -35,6 +35,7 @@ public class Unit : MonoBehaviour, IDamageable
         if(hp <= 0)
         {
             GameManager.Instance.OnChangeCurMonsterCount?.Invoke();
+            PlayerStatManager.Instance.GetMp();
             Destroy(gameObject);
         }
     }

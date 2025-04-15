@@ -6,16 +6,21 @@ public class DamageCard : Card
 {
     private void Awake()
     {
+        cost = 5;
         radius = 3;
     }
     public override void Active()
     {
-        Collider[] colliders = Physics.OverlapSphere(curCircleObj.transform.position, radius, 1 << 3);
-        foreach (Collider collider in colliders)
+        if (PlayerStatManager.Instance.Mp >= cost)
         {
-            if (collider.gameObject.TryGetComponent<Unit>(out Unit unit))
+            PlayerStatManager.Instance.ConsumeMP(cost);
+            Collider[] colliders = Physics.OverlapSphere(curCircleObj.transform.position, radius, 1 << 3);
+            foreach (Collider collider in colliders)
             {
-                unit.TakeDamage(5);
+                if (collider.gameObject.TryGetComponent<Unit>(out Unit unit))
+                {
+                    unit.TakeDamage(5);
+                }
             }
         }
     }

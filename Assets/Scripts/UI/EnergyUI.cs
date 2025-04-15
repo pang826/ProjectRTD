@@ -23,5 +23,4 @@ public class EnergyUI : MonoBehaviour
         energyBar.fillAmount = PlayerStatManager.Instance.Energy * 0.01f;
         energyText.text = $"{PlayerStatManager.Instance.Energy} / {PlayerStatManager.Instance.MaxEnergy}";
     }
-
 }
