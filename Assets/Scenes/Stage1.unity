@@ -41539,6 +41539,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 462
       objectReference: {fileID: 0}
+    - target: {fileID: 7650331077018633196, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
+      propertyPath: m_Name
+      value: Energy Bar
+      objectReference: {fileID: 0}
     - target: {fileID: 7650331077279199922, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
       propertyPath: m_Name
       value: Canvas

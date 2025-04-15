@@ -10,15 +10,16 @@ public class PlayerStatManager : MonoBehaviour
     public int Hp {  get { return hp; } }
     private int maxHp = 10;
     public int MaxHp { get { return maxHp; } }
-    private int mp = 30;
-    public int Mp { get { return mp; }  }
-    private int maxMp = 100;
-    public int MaxMp { get { return maxMp; } }
+    private int energy = 30;
+    public int Energy { get { return energy; }  }
+    private int maxEnergy = 100;
+    public int MaxEnergy { get { return maxEnergy; } }
     public int mpBoost = 1;
     private float curTime = 0;
 
     public UnityAction OnChangeHp;
-    public UnityAction OnChangeMp;
+    public UnityAction OnChangeEnergy;
+    public UnityAction OnChange;
     public UnityAction OnAttachEndPos;              // 적 목표지점 도착
 
     private void Awake()
@@ -37,28 +38,28 @@ public class PlayerStatManager : MonoBehaviour
 
     private void Update()
     {
-        if(mp < MaxMp)
+        if(energy < MaxEnergy)
         {
             curTime += Time.deltaTime;
             if (curTime >= 1)
             {
-                mp++;
+                energy++;
                 curTime = 0;
-                OnChangeMp?.Invoke();
+                OnChangeEnergy?.Invoke();
             }
         }
     }
 
-    public void ConsumeMp()
+    public void ConsumeEnergy()
     {
-        if(mp >= TowerSpawnManager.Instance.TowerPrice)
+        if(energy >= TowerSpawnManager.Instance.TowerPrice)
         {
-            mp -= TowerSpawnManager.Instance.TowerPrice;
-            OnChangeMp?.Invoke();
+            energy -= TowerSpawnManager.Instance.TowerPrice;
+            OnChangeEnergy?.Invoke();
         }
         else
         {
-            Debug.LogError("마나가 부족합니다");
+            Debug.LogError("에너지가 부족합니다");
         }
     }
 
