@@ -26,7 +26,8 @@ public class Unit : MonoBehaviour, IDamageable
         hp = monsterData.Hp;
         speed = monsterData.Speed;
     }
-
+    
+    // 데미지 함수
     public void TakeDamage(int damage)
     {
         hp -= damage;
@@ -80,19 +81,6 @@ public class Unit : MonoBehaviour, IDamageable
         }
     }
 
-    private void SetMonsterSpeed(float decreaseSpeedPercent)
-    {
-        float mount = 0;
-        mount = speed * decreaseSpeedPercent;
-        if(speed > 0.5f)
-        {
-            speed -= mount;
-        }
-        if(speed < 0.5f)
-        {
-            speed = 0.5f;
-        }
-    }
 
     private void ReturnMonsterSpeed()
     {
@@ -114,5 +102,19 @@ public class Unit : MonoBehaviour, IDamageable
         SetMonsterSpeed(decreaseSpeedPercent);
         yield return new WaitForSeconds(time);
         ReturnMonsterSpeed();
+    }
+
+    private void SetMonsterSpeed(float decreaseSpeedPercent)
+    {
+        float mount = 0;
+        mount = speed * decreaseSpeedPercent;
+        if (speed > 0.5f)
+        {
+            speed -= mount;
+        }
+        if (speed < 0.5f)
+        {
+            speed = 0.5f;
+        }
     }
 }

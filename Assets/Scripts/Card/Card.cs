@@ -14,8 +14,8 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     private Vector2 startPos;
     private GameObject cardUI;
     private GameObject towerUI;
-    [SerializeField] GameObject circleAreaObj;
-    GameObject curCircleObj;
+    [SerializeField] protected GameObject circleAreaObj;
+    protected GameObject curCircleObj;
     [SerializeField] protected float radius;
     private Image image;
     
@@ -53,8 +53,8 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     {
         transform.position = data.position;
         // 카드 UI / 타워 UI 영역이 아닐때 조건
-        if(!RectTransformUtility.RectangleContainsScreenPoint(cardUI.GetComponent<RectTransform>(), Input.mousePosition)
-            && !RectTransformUtility.RectangleContainsScreenPoint(towerUI.GetComponent<RectTransform>(), Input.mousePosition))
+        if(RectTransformUtility.RectangleContainsScreenPoint(cardUI.GetComponent<RectTransform>(), Input.mousePosition) == false
+            && RectTransformUtility.RectangleContainsScreenPoint(towerUI.GetComponent<RectTransform>(), Input.mousePosition) == false)
         {
             Debug.Log("카드UI, 타워UI 영역이 아님");
             DrawCircleArea(data.position);
@@ -89,6 +89,7 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
         // 게임 화면 영역일 때
         else
         {
+            Active();
             Destroy(gameObject);
             if(curCircleObj != null) 
             {
