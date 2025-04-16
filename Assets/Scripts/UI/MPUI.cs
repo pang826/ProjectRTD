@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class MPUI : MonoBehaviour
 {
     private Image mpBar;
-    private TextMeshProUGUI mpText;
+    [SerializeField] private TextMeshProUGUI mpText;
     private void Awake()
     {
         mpBar = GetComponent<Image>();
-        mpText = mpBar.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
     private void Start()
     {

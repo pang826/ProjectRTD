@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class EnergyUI : MonoBehaviour
 {
     private Image energyBar;
-    private TextMeshProUGUI energyText;
+    [SerializeField] private TextMeshProUGUI energyText;
     private void Awake()
     {
         energyBar = GetComponent<Image>();
-        energyText = energyBar.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
     private void Start()
     {

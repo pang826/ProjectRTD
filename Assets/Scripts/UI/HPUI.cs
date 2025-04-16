@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class HPUI : MonoBehaviour
 {
     private Image hpBar;
-    private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI hpText;
     private void Awake()
     {
         hpBar = GetComponent<Image>();
-        hpText = hpBar.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
     private void Start()
     {
