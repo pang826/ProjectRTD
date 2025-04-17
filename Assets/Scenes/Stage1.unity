@@ -40960,34 +40960,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1520680403}
-    - target: {fileID: 19593700, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 19593700, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: 19593700, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: a800d920d586aa64d8402f11f2ac85f4, type: 2}
-    - target: {fileID: 19593700, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
-      propertyPath: m_fontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19593700, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -6479059830177114368, guid: a800d920d586aa64d8402f11f2ac85f4, type: 2}
-    - target: {fileID: 19593700, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19593700, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7650331077279199922, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
       propertyPath: m_Name
       value: Canvas
