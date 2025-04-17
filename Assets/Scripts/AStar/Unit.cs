@@ -12,6 +12,8 @@ public class Unit : MonoBehaviour, IDamageable
     Vector3[] path;
     private int targetIndex;
     private Coroutine routine;
+
+    private bool isSlowed;
     private void OnEnable()
     {
         target = GameObject.FindGameObjectWithTag("EndPos").transform;
@@ -35,6 +37,7 @@ public class Unit : MonoBehaviour, IDamageable
         if(hp <= 0)
         {
             GameManager.Instance.OnChangeCurMonsterCount?.Invoke();
+            if(PlayerStatManager.Instance.Mp < PlayerStatManager.Instance.MaxMp)
             PlayerStatManager.Instance.GetMp();
             Destroy(gameObject);
         }
@@ -100,13 +103,16 @@ public class Unit : MonoBehaviour, IDamageable
 
     IEnumerator SlowRoutine(float decreaseSpeedPercent, float time)
     {
+        if(isSlowed == false)
         SetMonsterSpeed(decreaseSpeedPercent);
         yield return new WaitForSeconds(time);
+        isSlowed = false;
         ReturnMonsterSpeed();
     }
 
     private void SetMonsterSpeed(float decreaseSpeedPercent)
     {
+        isSlowed = true;
         float mount = 0;
         mount = speed * decreaseSpeedPercent;
         if (speed - mount > 0.1f)

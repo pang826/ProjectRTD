@@ -12,6 +12,7 @@ public class ArcherTower : Tower
         attackDelay = 0.5f;
         poolType = E_PoolType.Arrow;
         range = 10f;
+        Damage = 3;
     }
     private void Update()
     {
@@ -25,7 +26,10 @@ public class ArcherTower : Tower
             Attack(this);
         }
     }
-
+    public override void UpgradeTower(int lv2Dmg, int lv3Dmg)
+    {
+        base.UpgradeTower(lv2Dmg, lv3Dmg);
+    }
 
     public override void Attack(Tower child)
     {

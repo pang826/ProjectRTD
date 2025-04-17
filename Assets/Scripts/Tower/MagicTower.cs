@@ -11,6 +11,7 @@ public class MagicTower : Tower
         attackDelay = 1;
         poolType = E_PoolType.MagicBall;
         range = 8f;
+        Damage = 5;
     }
     private void Update()
     {
@@ -24,10 +25,15 @@ public class MagicTower : Tower
             Attack(this);
         }
     }
+    public override void UpgradeTower(int lv2Dmg, int lv3Dmg)
+    {
+        base.UpgradeTower(lv2Dmg, lv3Dmg);
+    }
     public override void Attack(Tower child)
     {
         if (isAttack == false)
         {
+            anim.SetTrigger("isAttack");
             GameObject obj = ObjectPoolManager.Instance.GetObject(child.poolType, transform);
             obj.GetComponent<Bullet>().Init(child, enemy.transform.position);
         }

@@ -9,9 +9,10 @@ public class CanonTower : Tower
     {
         anim = GetComponent<Animator>();
         name = "캐논타워";
-        attackDelay = 2;
+        attackDelay = 3;
         poolType = E_PoolType.CanonBall;
         range = 8f;
+        Damage = 7;
     }
     private void Update()
     {
@@ -24,6 +25,10 @@ public class CanonTower : Tower
             transform.LookAt(enemy.transform.position);
             Attack(this);
         }
+    }
+    public override void UpgradeTower(int lv2Dmg, int lv3Dmg)
+    {
+        base.UpgradeTower(lv2Dmg, lv3Dmg);
     }
     public override void Attack(Tower child)
     {

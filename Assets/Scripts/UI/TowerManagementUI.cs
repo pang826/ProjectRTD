@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class TowerManagementUI : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class TowerManagementUI : MonoBehaviour
         if(TowerBase != null &&TowerBase.isSpawned == false && PlayerStatManager.Instance.Energy >= TowerSpawnManager.Instance.TowerPrice)
         {
             GameObject towerObj = Instantiate(TowerSpawnManager.Instance.Spawn(), TowerBase.transform.GetChild(0).position, Quaternion.identity);
-            PlayerStatManager.Instance.ConsumeEnergy();
+            PlayerStatManager.Instance.ConsumeEnergyToSpawnTower();
             towerObj.transform.parent = TowerBase.transform.GetChild(0);
             TowerBase.isSpawned = true;
         }
@@ -36,9 +37,11 @@ public class TowerManagementUI : MonoBehaviour
 
     public void UpgradeTower()
     {
-        if(TowerBase.isSpawned == true)
+        if(TowerBase.isSpawned == true && PlayerStatManager.Instance.Energy >= TowerSpawnManager.Instance.TowerPrice)
         {
-
+            PlayerStatManager.Instance.ConsumeEnergyToSpawnTower();
+            Tower tower = TowerBase.transform.GetChild(0).GetChild(0).GetComponent<Tower>();
+            tower.UpgradeTower(tower.Lv2Dmg, tower.Lv3Dmg);
         }
     }
 

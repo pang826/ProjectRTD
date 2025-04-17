@@ -17,6 +17,7 @@ public abstract class Bullet : MonoBehaviour
     public virtual void Init(Tower tower, Vector3 targetPos)
     {
         Tower = tower;
+        damage = tower.Damage;
         this.targetPos = targetPos;
     }
     public abstract void Move();

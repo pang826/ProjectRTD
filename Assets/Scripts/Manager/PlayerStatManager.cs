@@ -58,18 +58,15 @@ public class PlayerStatManager : MonoBehaviour
         }
     }
 
-    public void ConsumeEnergy()
+    public void ConsumeEnergyToSpawnTower()
     {
         if(energy >= TowerSpawnManager.Instance.TowerPrice)
         {
             energy -= TowerSpawnManager.Instance.TowerPrice;
             OnChangeEnergy?.Invoke();
         }
-        else
-        {
-            Debug.LogError("에너지가 부족합니다");
-        }
     }
+
     public void GetMp()
     {
         mp++;

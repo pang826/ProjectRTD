@@ -7,7 +7,6 @@ public class MagicBall : Bullet
     private void Start()
     {
         poolType = E_PoolType.MagicBall;
-        damage = 5;
     }
     private void OnEnable()
     {
