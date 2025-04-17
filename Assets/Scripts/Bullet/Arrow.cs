@@ -8,7 +8,7 @@ public class Arrow : Bullet
     private void Start()
     {
         poolType = E_PoolType.Arrow;
-        damage = 1;
+        damage = 3;
     }
     private void OnEnable()
     {

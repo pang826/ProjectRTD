@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,22 +12,31 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     [SerializeField] protected int cost;
     [SerializeField] protected string description;
 
-    private Vector2 startPos;
     private GameObject cardUI;
+    private TextMeshProUGUI tmp;
     private GameObject towerUI;
+    private Image image;
+
     [SerializeField] protected GameObject circleAreaObj;
     protected GameObject curCircleObj;
+
+    private Vector2 startPos;
     [SerializeField] protected float radius;
-    private Image image;
     
     private void Start()
     {
         cardUI = GameObject.FindGameObjectWithTag("CardUI");
+        tmp = cardUI.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         towerUI = GameObject.FindGameObjectWithTag("TowerUI");
         startPos = transform.position;
         image = GetComponent<Image>();
+        tmp.text = description;
     }
 
+    private void OnDisable()
+    {
+        tmp.text = null;
+    }
     public abstract void Active();
 
     private void Update()

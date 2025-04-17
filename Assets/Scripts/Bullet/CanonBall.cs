@@ -7,7 +7,7 @@ public class CanonBall : Bullet
     private void Start()
     {
         poolType = E_PoolType.CanonBall;
-        damage = 5;
+        damage = 7;
     }
     private void OnEnable()
     {

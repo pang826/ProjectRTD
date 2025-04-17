@@ -12,7 +12,6 @@ public class CanonTower : Tower
         attackDelay = 2;
         poolType = E_PoolType.CanonBall;
         range = 8f;
-        Damage = 1f;
     }
     private void Update()
     {

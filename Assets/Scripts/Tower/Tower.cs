@@ -10,7 +10,6 @@ public abstract class Tower : MonoBehaviour
     protected bool isAttack;
     protected float attackDelay;
     protected float range;
-    public float Damage;
     [SerializeField] protected Animator anim;
     public virtual void Attack(Tower child)
     {

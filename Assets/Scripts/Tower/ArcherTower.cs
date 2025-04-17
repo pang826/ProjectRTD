@@ -12,7 +12,6 @@ public class ArcherTower : Tower
         attackDelay = 0.5f;
         poolType = E_PoolType.Arrow;
         range = 10f;
-        Damage = 1f;
     }
     private void Update()
     {

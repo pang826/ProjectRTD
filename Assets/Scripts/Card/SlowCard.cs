@@ -19,7 +19,7 @@ public class SlowCard : Card
             {
                 if (collider.gameObject.TryGetComponent<Unit>(out Unit unit))
                 {
-                    unit.SetSpeedEffect(0.3f, 3);
+                    unit.SetSpeedEffect(0.7f, 3);
                 }
             }
         }

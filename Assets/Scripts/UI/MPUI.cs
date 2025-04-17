@@ -21,6 +21,6 @@ public class MPUI : MonoBehaviour
     private void UpdateMpBar()
     {
         mpBar.fillAmount = PlayerStatManager.Instance.Mp * 0.05f;
-        mpText.text = $"{PlayerStatManager.Instance.Mp} / {PlayerStatManager.Instance.MaxMp}";
+        mpText.text = $"{PlayerStatManager.Instance.Mp} /\n {PlayerStatManager.Instance.MaxMp}";
     }
 }

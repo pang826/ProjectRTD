@@ -11,7 +11,6 @@ public class MagicTower : Tower
         attackDelay = 1;
         poolType = E_PoolType.MagicBall;
         range = 8f;
-        Damage = 1f;
     }
     private void Update()
     {

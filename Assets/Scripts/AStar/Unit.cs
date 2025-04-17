@@ -109,13 +109,13 @@ public class Unit : MonoBehaviour, IDamageable
     {
         float mount = 0;
         mount = speed * decreaseSpeedPercent;
-        if (speed > 0.5f)
+        if (speed - mount > 0.1f)
         {
             speed -= mount;
         }
-        if (speed < 0.5f)
+        else
         {
-            speed = 0.5f;
+            speed = 0.1f;
         }
     }
 }
