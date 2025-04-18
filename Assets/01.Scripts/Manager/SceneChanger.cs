@@ -24,4 +24,9 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("StageSelect");
     }
+
+    public void SelectStage(int num)
+    {
+        SceneManager.LoadScene($"Stage{num}");
+    }
 }

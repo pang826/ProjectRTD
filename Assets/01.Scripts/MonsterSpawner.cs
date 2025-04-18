@@ -31,7 +31,7 @@ public class MonsterSpawner : MonoBehaviour
     }
     IEnumerator SpawnRoutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         while(curCount > 0 && isSpawn == false)
         {
             isSpawn = true;
