@@ -13,14 +13,16 @@ public class TowerManagementUI : MonoBehaviour
     public Button HideButton;
     private TextMeshProUGUI hideButtonText;
 
+    RectTransform rectTransform;
     private bool isHide;
-    private Vector3 unhidePos;
-    private Vector3 hidePos;
+    private Vector2 unhidePos;
+    private Vector2 hidePos;
 
     private void Awake()
     {
-        unhidePos = transform.position;
-        hidePos = transform.position + new Vector3(458, 0, 0);
+        rectTransform = GetComponent<RectTransform>();
+        unhidePos = rectTransform.anchoredPosition;
+        hidePos = new Vector2(460, 0);
         hideButtonText = HideButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
@@ -61,8 +63,8 @@ public class TowerManagementUI : MonoBehaviour
     {
         while(true) 
         {
-            transform.position = Vector3.Lerp(transform.position, hidePos, Time.deltaTime * 7f);
-            if(Vector3.Distance(transform.position, hidePos) <= 0.5f)
+            rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, hidePos, Time.deltaTime * 7f);
+            if(Vector3.Distance(rectTransform.anchoredPosition, hidePos) <= 0.5f)
             {
                 isHide = true;
                 hideButtonText.text = "¢¸";
@@ -76,8 +78,8 @@ public class TowerManagementUI : MonoBehaviour
     {
         while(true)
         {
-            transform.position = Vector3.Lerp(transform.position, unhidePos, Time.deltaTime * 7f);
-            if(Vector3.Distance(transform.position, unhidePos) <= 0.5f)
+            rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, unhidePos, Time.deltaTime * 7f);
+            if (Vector3.Distance(rectTransform.anchoredPosition, unhidePos) <= 0.5f)
             {
                 isHide = false;
                 hideButtonText.text = "¢º";

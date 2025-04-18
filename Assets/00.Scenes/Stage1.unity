@@ -40971,9 +40971,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1520680403}
+    - target: {fileID: 4337774411015443189, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884411430085470314, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461982135845051934, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7650331077279199922, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650331077279199925, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 7650331077279199925, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650331077279199925, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7650331077279199926, guid: 2a1f9a327c5dcbb40b5bcbcb8dc46697, type: 3}
       propertyPath: m_Pivot.x
