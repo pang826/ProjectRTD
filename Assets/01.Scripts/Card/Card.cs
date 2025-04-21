@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     private TextMeshProUGUI tmp;
     private GameObject towerUI;
     private Image image;
+    private RectTransform rectTransform;
 
     [SerializeField] protected GameObject circleAreaObj;
     protected GameObject curCircleObj;
@@ -30,6 +32,7 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
         towerUI = GameObject.FindGameObjectWithTag("TowerUI");
         startPos = transform.position;
         image = GetComponent<Image>();
+        rectTransform = GetComponent<RectTransform>();
         tmp.text = description;
     }
 
@@ -41,7 +44,7 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
 
     private void Update()
     {
-        if(RectTransformUtility.RectangleContainsScreenPoint(gameObject.GetComponent<RectTransform>(), Input.mousePosition))
+        if(RectTransformUtility.RectangleContainsScreenPoint(gameObject.GetComponent<RectTransform>(), Input.mousePosition, Camera.main))
         {
             Debug.Log("카드 위에 마우스 있음");
         }
@@ -61,10 +64,15 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
 
     public virtual void OnDrag(PointerEventData data)
     {
-        transform.position = data.position;
-        // 카드 UI / 타워 UI 영역이 아닐때 조건
-        if(RectTransformUtility.RectangleContainsScreenPoint(cardUI.GetComponent<RectTransform>(), Input.mousePosition) == false
-            && RectTransformUtility.RectangleContainsScreenPoint(towerUI.GetComponent<RectTransform>(), Input.mousePosition) == false)
+        Vector3 worldPos;
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, data.position, Camera.main, out worldPos))
+        {
+            rectTransform.position = worldPos;
+        }
+
+        // 카드 UI / 타워 UI 영역이 아닐때 조건(게임화면일경우)
+        if (RectTransformUtility.RectangleContainsScreenPoint(cardUI.GetComponent<RectTransform>(), Input.mousePosition, Camera.main) == false
+            && RectTransformUtility.RectangleContainsScreenPoint(towerUI.GetComponent<RectTransform>(), Input.mousePosition, Camera.main) == false)
         {
             Debug.Log("카드UI, 타워UI 영역이 아님");
             DrawCircleArea(data.position);
@@ -91,10 +99,10 @@ public abstract class Card : MonoBehaviour, IDragHandler, IEndDragHandler, IBegi
     public virtual void OnEndDrag(PointerEventData data)
     {
         // 카드 UI / 타워 UI 영역일 경우 원래 포지션으로 위치 변경
-        if (RectTransformUtility.RectangleContainsScreenPoint(cardUI.GetComponent<RectTransform>(), Input.mousePosition)
-            || RectTransformUtility.RectangleContainsScreenPoint(towerUI.GetComponent<RectTransform>(), Input.mousePosition))
+        if (RectTransformUtility.RectangleContainsScreenPoint(cardUI.GetComponent<RectTransform>(), Input.mousePosition, Camera.main)
+            || RectTransformUtility.RectangleContainsScreenPoint(towerUI.GetComponent<RectTransform>(), Input.mousePosition, Camera.main))
         {
-            transform.position = startPos;
+            rectTransform.localPosition = Vector3.zero;
         }
         // 게임 화면 영역일 때
         else

@@ -22,7 +22,7 @@ public class TowerBase : MonoBehaviour, IPointerClickHandler
     private void Update()
     {
         if (isEmissionOn && Input.GetMouseButtonDown(0) &&
-            !RectTransformUtility.RectangleContainsScreenPoint(towerManagementUI.GetComponent<RectTransform>(), Input.mousePosition))
+            !RectTransformUtility.RectangleContainsScreenPoint(towerManagementUI.GetComponent<RectTransform>(), Input.mousePosition, Camera.main))
         {
             isEmissionOn = false;
             SetEmission(false);

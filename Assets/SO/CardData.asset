@@ -16,12 +16,10 @@ MonoBehaviour:
   - CardNum: 1
     CardName: SlowCard
     Cost: 1
-    Description: "\uD574\uB2F9\uC601\uC5ED\uC758 \uBAAC\uC2A4\uD130\uC5D0\uAC8C 3\uCD08\uAC04
-      70%\uC758 \uC2AC\uB85C\uC6B0 \uD6A8\uACFC \uC801\uC6A9"
-    CardPrefab: {fileID: 7083390759953486171, guid: 57145720f513f5c42a0b70399fe23dd0, type: 3}
+    Description: Slow
+    CardPrefab: {fileID: 5935065703627666800, guid: 02a3ef1eb0bf2b442b0663b1ce567445, type: 3}
   - CardNum: 2
     CardName: DamageCard
     Cost: 2
-    Description: "\uD574\uB2F9\uC601\uC5ED\uC758 \uBAAC\uC2A4\uD130\uC5D0\uAC8C 5\uC758
-      \uB370\uBBF8\uC9C0 \uC801\uC6A9"
+    Description: Damage
     CardPrefab: {fileID: 7083390759953486171, guid: 13d22c1e5678d5841854ee6389cfa881, type: 3}

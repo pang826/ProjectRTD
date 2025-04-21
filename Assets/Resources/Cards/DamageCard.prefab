@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 7083390759953486171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -567, y: 0}
-  m_SizeDelta: {x: 162.9995, y: 237.2023}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7083390759953486167
 MonoBehaviour:
@@ -51,10 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91efa693c9394a44853317383689de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 
-  cost: 0
-  description: 
+  cardName: DamageCard
+  cost: 2
+  description: Damage
   circleAreaObj: {fileID: 1709507094168520124, guid: 7e805c01ec3ce604c8e0060c3d35ac16, type: 3}
+  radius: 0
 --- !u!222 &7083390759953486166
 CanvasRenderer:
   m_ObjectHideFlags: 0
