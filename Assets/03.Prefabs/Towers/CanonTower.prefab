@@ -9678,6 +9678,7 @@ MonoBehaviour:
   Damage: 7
   Lv2Dmg: 1
   Lv3Dmg: 2
+  Speed: 15
   lv2Effect: {fileID: 5737559017615289321}
   lv3Effect: {fileID: 1435189194244626619}
   anim: {fileID: 7005609836653266111}

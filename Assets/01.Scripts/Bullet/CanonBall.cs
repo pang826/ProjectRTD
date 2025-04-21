@@ -19,7 +19,7 @@ public class CanonBall : Bullet
     }
     public override void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 8);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
         transform.LookAt(targetPos);
     }
     IEnumerator DeleteRoutine()

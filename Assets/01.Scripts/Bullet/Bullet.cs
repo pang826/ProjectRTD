@@ -9,6 +9,7 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected Vector3 targetPos;
     protected E_PoolType poolType;
     protected int damage;
+    protected float speed;
     private void Awake()
     {
         targetPos = new Vector3(1, 1, 1);
@@ -19,6 +20,7 @@ public abstract class Bullet : MonoBehaviour
         Tower = tower;
         damage = tower.Damage;
         this.targetPos = targetPos;
+        speed = tower.Speed;
     }
     public abstract void Move();
 

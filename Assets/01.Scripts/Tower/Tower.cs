@@ -13,6 +13,7 @@ public abstract class Tower : MonoBehaviour
     public int Damage;
     public int Lv2Dmg;
     public int Lv3Dmg;
+    public float Speed;
 
     [SerializeField] protected ParticleSystem lv2Effect;
     [SerializeField] protected ParticleSystem lv3Effect;
