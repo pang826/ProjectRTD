@@ -1,0 +1,6 @@
+Name,Hp,Speed,PrefabPath
+Wave1,10,2,Monsters/Wave1
+Wave2,15,2,Monsters/Wave2
+Wave3,20,2,Monsters/Wave3
+Wave4,30,3,Monsters/Wave4
+Wave5,200,5,Monsters/Wave5

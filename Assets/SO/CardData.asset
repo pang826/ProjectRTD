@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9e027da14f00545932172098b3994f, type: 3}
+  m_Name: CardData
+  m_EditorClassIdentifier: 
+  CData:
+  - CardNum: 1
+    CardName: SlowCard
+    Cost: 1
+    Description: Slow
+    CardPrefab: {fileID: 5935065703627666800, guid: 02a3ef1eb0bf2b442b0663b1ce567445, type: 3}
+  - CardNum: 2
+    CardName: DamageCard
+    Cost: 2
+    Description: Damage
+    CardPrefab: {fileID: 7083390759953486171, guid: 13d22c1e5678d5841854ee6389cfa881, type: 3}
