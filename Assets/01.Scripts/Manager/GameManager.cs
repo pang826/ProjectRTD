@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,8 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int curMonsterCount;
     public int CurMonsterCount { get { return curMonsterCount; } }
-    public TextMeshProUGUI ClearTMP;
-    public TextMeshProUGUI DefeatTMP;
+    [SerializeField] private Image clear;
+    [SerializeField] private Image defeat;
 
     public bool IsClear;                // 클리어 여부
 
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
         OnChangeCurMonsterCount += ChangeCurMonsterCount;
         OnStageClear += Clear;
         OnStageDefeat += Defeat;
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
     private void Start()
@@ -110,11 +113,31 @@ public class GameManager : MonoBehaviour
     
     private void Clear()
     {
-        ClearTMP.gameObject.SetActive(true);
+        clear.gameObject.SetActive(true);
     }
 
     private void Defeat()
     {
-        DefeatTMP.gameObject.SetActive(true);
+        defeat.gameObject.SetActive(true);
+    }
+
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name.StartsWith("Stage"))
+        {
+            GameObject clearUI = GameObject.FindGameObjectWithTag("ClearUI");
+            GameObject defeatUI = GameObject.FindGameObjectWithTag("DefeatUI");
+
+            if (clearUI != null)
+            {
+                clear = clearUI.GetComponent<Image>();
+                clear.gameObject.SetActive(false);
+            }
+            if (defeatUI != null)
+            {
+                defeat = defeatUI.GetComponent<Image>();
+                defeat.gameObject.SetActive(false);
+            }
+        }
     }
 }

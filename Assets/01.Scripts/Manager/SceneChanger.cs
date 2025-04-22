@@ -22,11 +22,12 @@ public class SceneChanger : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("StageSelect");
+        SceneManager.LoadScene("SelectStage");
     }
 
     public void SelectStage(int num)
     {
+        if(GameManager.Instance.Stage <= num)
         SceneManager.LoadScene($"Stage{num}");
     }
 }
