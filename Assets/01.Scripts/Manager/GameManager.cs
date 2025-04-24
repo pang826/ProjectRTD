@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int stage = 1;
     public int Stage { get { return stage; } }
+    private int curStage;
+    public int CurStage { get { return curStage; } set { curStage = value; } }
     private int round = 1;
     public int Round { get { return round; } }
     private int bossRound = 5;          // 보스 라운드
@@ -114,6 +116,10 @@ public class GameManager : MonoBehaviour
     private void Clear()
     {
         clear.gameObject.SetActive(true);
+        if(curStage == stage)
+        {
+            stage++;
+        }
     }
 
     private void Defeat()

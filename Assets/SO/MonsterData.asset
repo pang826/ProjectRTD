@@ -30,6 +30,6 @@ MonoBehaviour:
     Speed: 3
     Prefab: {fileID: 7615851355608933860, guid: 754221f4db3d56a428ee0e9335126cae, type: 3}
   - Name: Wave5
-    Hp: 200
+    Hp: 100
     Speed: 5
     Prefab: {fileID: 7615851355608933860, guid: 28fd0f448736f1842866dd421a410195, type: 3}

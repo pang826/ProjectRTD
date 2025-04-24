@@ -11,16 +11,8 @@ public class TowerSpawnManager : MonoBehaviour
     [SerializeField] public int TowerPrice;
     private void Awake()
     {
-        if (Instance == null)
-        {
+        if(Instance == null)
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            if (Instance != this)
-                Destroy(gameObject);
-        }
         towerCount = towers.Length;
 
         for(int i = 0; i < towers.Length; i++) 

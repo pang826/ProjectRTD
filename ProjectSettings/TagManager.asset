@@ -9,6 +9,7 @@ TagManager:
   - CardUI
   - ClearUI
   - DefeatUI
+  - SceneChanger
   layers:
   - Default
   - TransparentFX

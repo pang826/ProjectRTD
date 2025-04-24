@@ -20,7 +20,7 @@ public class HPUI : MonoBehaviour
 
     private void UpdateHPBar()
     {
-        hpBar.fillAmount = PlayerStatManager.Instance.Hp * 10;
+        hpBar.fillAmount = PlayerStatManager.Instance.Hp * 0.1f;
         hpText.text = $"{PlayerStatManager.Instance.Hp} /\n {PlayerStatManager.Instance.MaxHp}";
     }
 }

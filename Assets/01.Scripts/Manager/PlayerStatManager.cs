@@ -33,14 +33,7 @@ public class PlayerStatManager : MonoBehaviour
     private void Awake()
     {
         if(Instance == null)
-        {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         OnAttachEndPos += DecreaseHp;
     }
 

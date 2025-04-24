@@ -18,14 +18,7 @@ public class CardManager : MonoBehaviour
     private void Awake()
     {
         if(Instance == null)
-        {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         cardTransform = GameObject.FindGameObjectWithTag("CardUI").transform;
         cardSocket = cardTransform.GetChild(1).transform.GetComponent<RectTransform>();
     }
@@ -44,7 +37,7 @@ public class CardManager : MonoBehaviour
     {
         if (curObj != null) return;
         int randNum = Random.Range(1, cardDictionary.Count + 1);
-        //GameObject obj = Instantiate(cardDictionary[randNum], cardSocket.anchoredPosition, Quaternion.identity);
+
         GameObject obj = Instantiate(cardDictionary[randNum]);
         curObj = obj;
         obj.transform.SetParent(cardSocket, false);

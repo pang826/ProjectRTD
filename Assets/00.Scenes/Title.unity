@@ -1120,8 +1120,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12, y: -136}
-  m_SizeDelta: {x: 674.4106, y: 200.9488}
+  m_AnchoredPosition: {x: -1111, y: -90}
+  m_SizeDelta: {x: 738.96, y: 200.95}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1909435574
 MonoBehaviour:
@@ -1143,10 +1143,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Project RTD
+  m_text: PROJECT RTD
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a800d920d586aa64d8402f11f2ac85f4, type: 2}
-  m_sharedMaterial: {fileID: -6479059830177114368, guid: a800d920d586aa64d8402f11f2ac85f4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a86b759113e09b143a9494459a70356f, type: 2}
+  m_sharedMaterial: {fileID: 7829750362725459450, guid: a86b759113e09b143a9494459a70356f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
