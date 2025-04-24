@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     {
         if(scene.name.StartsWith("Stage"))
         {
+            round = 1;
             GameObject clearUI = GameObject.FindGameObjectWithTag("ClearUI");
             GameObject defeatUI = GameObject.FindGameObjectWithTag("DefeatUI");
 

@@ -24,4 +24,8 @@ public class ClearUI : MonoBehaviour
             button.onClick.AddListener(OnClickSetting);
         }
     }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoad;
+    }
 }

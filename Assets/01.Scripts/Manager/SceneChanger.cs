@@ -27,7 +27,7 @@ public class SceneChanger : MonoBehaviour
 
     public void SelectStage(int num)
     {
-        if(GameManager.Instance.Stage <= num)
+        if(GameManager.Instance.Stage >= num)
         {
             SceneManager.LoadScene($"Stage{num}");
             GameManager.Instance.CurStage = num;        // 게임매니저의 현재 스테이지 값 부여

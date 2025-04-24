@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StageUI : MonoBehaviour
@@ -11,13 +12,24 @@ public class StageUI : MonoBehaviour
 
     private void Awake()
     {
-        stage1 = transform.GetChild(0).GetComponent<Button>();
-        stage2 = transform.GetChild(1).GetComponent<Button>();
-        stage3 = transform.GetChild(2).GetComponent<Button>();
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
-    private void Start()
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        stage1.onClick.AddListener(() => SceneChanger.Instance.SelectStage(1));
+        if (scene.name == "SelectStage")
+        {
+            stage1 = transform.GetChild(0).GetComponent<Button>();
+            stage2 = transform.GetChild(1).GetComponent<Button>();
+            stage3 = transform.GetChild(2).GetComponent<Button>();
+            stage1.onClick.AddListener(() => SceneChanger.Instance.SelectStage(1));
+            stage2.onClick.AddListener(() => SceneChanger.Instance.SelectStage(2));
+            stage3.onClick.AddListener(() => SceneChanger.Instance.SelectStage(3));
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoad;
     }
 }
