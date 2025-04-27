@@ -80,16 +80,17 @@ public class AGrid : MonoBehaviour
         return grid[x, y];
 
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position, new Vector3(worldSize.x, 1, worldSize.y));
-        if(grid != null)
-        {
-            foreach(ANode node in grid)
-            {
-                Gizmos.color = (node.isWalkAble) ? Color.white : Color.red;
-                Gizmos.DrawCube(node.worldPos, Vector3.one * (diameter - 0.1f));
-            }
-        }
-    }
+    // 기즈모 확인하고 싶을때 주석 제거
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireCube(transform.position, new Vector3(worldSize.x, 1, worldSize.y));
+    //    if(grid != null)
+    //    {
+    //        foreach(ANode node in grid)
+    //        {
+    //            Gizmos.color = (node.isWalkAble) ? Color.white : Color.red;
+    //            Gizmos.DrawCube(node.worldPos, Vector3.one * (diameter - 0.1f));
+    //        }
+    //    }
+    //}
 }

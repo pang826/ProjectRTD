@@ -35,7 +35,7 @@ public class CardManager : MonoBehaviour
 
     public void SpawnCard()
     {
-        if (curObj != null) return;
+        if (curObj != null || PlayerStatManager.Instance.Energy < 3) return;
         int randNum = Random.Range(1, cardDictionary.Count + 1);
 
         GameObject obj = Instantiate(cardDictionary[randNum]);

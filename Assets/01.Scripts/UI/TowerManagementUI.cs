@@ -22,7 +22,7 @@ public class TowerManagementUI : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         unhidePos = rectTransform.anchoredPosition;
-        hidePos = new Vector2(460, 0);
+        hidePos = new Vector2(460, rectTransform.anchoredPosition.y);
         hideButtonText = HideButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
