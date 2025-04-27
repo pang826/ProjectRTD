@@ -19,6 +19,7 @@ public class StageUI : MonoBehaviour
     {
         if (scene.name == "SelectStage")
         {
+            SoundManager.Instance.StartMainBGM();
             stage1 = transform.GetChild(0).GetComponent<Button>();
             stage2 = transform.GetChild(1).GetComponent<Button>();
             stage3 = transform.GetChild(2).GetComponent<Button>();

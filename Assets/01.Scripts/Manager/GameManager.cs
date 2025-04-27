@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
     }
     private void Update()
     {
@@ -131,6 +130,9 @@ public class GameManager : MonoBehaviour
     {
         if(scene.name.StartsWith("Stage"))
         {
+            SoundManager.Instance.StartStageBGM();
+            if(SoundManager.Instance.IsFirstPlay)
+                SoundManager.Instance.IsFirstPlay = false;
             round = 1;
             GameObject clearUI = GameObject.FindGameObjectWithTag("ClearUI");
             GameObject defeatUI = GameObject.FindGameObjectWithTag("DefeatUI");

@@ -34,6 +34,7 @@ public class CanonBall : Bullet
         if (other.gameObject.layer == 3 || other.gameObject.layer == 9)
         {
             ObjectPoolManager.Instance.GetObject(E_PoolType.CanonBallEffect, transform);
+            SoundManager.Instance.StartSFX(SoundManager.E_SFX.Explosion);
             // 폭발 범위 판정
             float explosionRadius = 2.0f;
             Collider[] hits = Physics.OverlapSphere(transform.position, explosionRadius, 1 << 3);
