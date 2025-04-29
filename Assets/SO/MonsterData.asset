@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MData:
   - Name: Wave1
-    Hp: 150
+    Hp: 10
     Speed: 2
     Prefab: {fileID: 7615851355608933860, guid: 6dc796fc9b9a3b040a1bf9d185cad42c, type: 3}
   - Name: Wave2

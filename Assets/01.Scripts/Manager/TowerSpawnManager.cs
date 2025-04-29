@@ -28,4 +28,9 @@ public class TowerSpawnManager : MonoBehaviour
         towerDic[(E_TowerType)randNum].Enqueue(towers[randNum]);
         return towers[randNum];
     }
+
+    public void UpgradeTower(Tower tower)
+    {
+        tower.UpgradeTower(tower.Lv2Dmg, tower.Lv3Dmg);
+    }
 }

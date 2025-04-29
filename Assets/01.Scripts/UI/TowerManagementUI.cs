@@ -44,7 +44,7 @@ public class TowerManagementUI : MonoBehaviour
         {
             PlayerStatManager.Instance.ConsumeEnergyToSpawnTower();
             Tower tower = TowerBase.transform.GetChild(0).GetChild(0).GetComponent<Tower>();
-            tower.UpgradeTower(tower.Lv2Dmg, tower.Lv3Dmg);
+            TowerSpawnManager.Instance.UpgradeTower(tower);
         }
     }
 
