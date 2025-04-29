@@ -20,12 +20,30 @@ public class StageUI : MonoBehaviour
         if (scene.name == "SelectStage")
         {
             SoundManager.Instance.StartMainBGM();
+
             stage1 = transform.GetChild(0).GetComponent<Button>();
             stage2 = transform.GetChild(1).GetComponent<Button>();
             stage3 = transform.GetChild(2).GetComponent<Button>();
             stage1.onClick.AddListener(() => SceneChanger.Instance.SelectStage(1));
             stage2.onClick.AddListener(() => SceneChanger.Instance.SelectStage(2));
             stage3.onClick.AddListener(() => SceneChanger.Instance.SelectStage(3));
+
+            // 스테이지 UI 잠금이 확인 가능하도록
+            switch(GameManager.Instance.Stage) 
+            {
+                case 1:
+                    stage2.image.color = Color.gray;
+                    stage3.image.color = Color.gray;
+                    stage2.enabled = false;
+                    stage3.enabled = false;
+                    break;
+                case 2:
+                    stage3.image.color = Color.gray;
+                    stage3.enabled = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
