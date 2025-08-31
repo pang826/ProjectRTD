@@ -11,7 +11,7 @@ public class MonsterSpawner : MonoBehaviour
     private int wave;
     private int curCount;
     private bool isSpawn;
-    
+    Coroutine spawnRoutine;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class MonsterSpawner : MonoBehaviour
             PlayerStatManager.Instance.Hp <= 0) return;
         wave = GameManager.Instance.Round - 1;
         curCount = GameManager.Instance.MonsterCount;
-        StartCoroutine(SpawnRoutine());
+        spawnRoutine = StartCoroutine(SpawnRoutine());
     }
     IEnumerator SpawnRoutine()
     {
@@ -49,5 +49,13 @@ public class MonsterSpawner : MonoBehaviour
         
         GameObject monster = Instantiate(monsterData[num].Prefab, pos, Quaternion.identity);
         monster.GetComponent<Unit>().SetData(monsterData[num]);
+    }
+
+    private void OnDestroy()
+    {
+        if(spawnRoutine != null)
+        StopCoroutine(spawnRoutine);
+
+        GameManager.Instance.OnIncreaseRound -= ChangeMCount;
     }
 }

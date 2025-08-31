@@ -33,6 +33,7 @@ public class MagicTower : Tower
     {
         if (isAttack == false)
         {
+            SoundManager.Instance.StartSFX(SoundManager.E_SFX.Magic);
             anim.SetTrigger("isAttack");
             GameObject obj = ObjectPoolManager.Instance.GetObject(child.poolType, transform);
             obj.GetComponent<Bullet>().Init(child, enemy.transform.position);

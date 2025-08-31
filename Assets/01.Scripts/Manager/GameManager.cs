@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int stage = 1;
     public int Stage { get { return stage; } }
+    private int curStage;
+    public int CurStage { get { return curStage; } set { curStage = value; } }
     private int round = 1;
     public int Round { get { return round; } }
     private int bossRound = 5;          // 보스 라운드
@@ -23,8 +27,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int curMonsterCount;
     public int CurMonsterCount { get { return curMonsterCount; } }
-    public TextMeshProUGUI ClearTMP;
-    public TextMeshProUGUI DefeatTMP;
+    [SerializeField] private Image clear;
+    [SerializeField] private Image defeat;
 
     public bool IsClear;                // 클리어 여부
 
@@ -54,11 +58,11 @@ public class GameManager : MonoBehaviour
         OnChangeCurMonsterCount += ChangeCurMonsterCount;
         OnStageClear += Clear;
         OnStageDefeat += Defeat;
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
     private void Start()
     {
-        
     }
     private void Update()
     {
@@ -110,11 +114,39 @@ public class GameManager : MonoBehaviour
     
     private void Clear()
     {
-        ClearTMP.gameObject.SetActive(true);
+        clear.gameObject.SetActive(true);
+        if(curStage == stage)
+        {
+            stage++;
+        }
     }
 
     private void Defeat()
     {
-        DefeatTMP.gameObject.SetActive(true);
+        defeat.gameObject.SetActive(true);
+    }
+
+    private void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name.StartsWith("Stage"))
+        {
+            SoundManager.Instance.StartStageBGM();
+            if(SoundManager.Instance.IsFirstPlay)
+                SoundManager.Instance.IsFirstPlay = false;
+            round = 1;
+            GameObject clearUI = GameObject.FindGameObjectWithTag("ClearUI");
+            GameObject defeatUI = GameObject.FindGameObjectWithTag("DefeatUI");
+
+            if (clearUI != null)
+            {
+                clear = clearUI.GetComponent<Image>();
+                clear.gameObject.SetActive(false);
+            }
+            if (defeatUI != null)
+            {
+                defeat = defeatUI.GetComponent<Image>();
+                defeat.gameObject.SetActive(false);
+            }
+        }
     }
 }

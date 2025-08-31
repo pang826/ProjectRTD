@@ -10,17 +10,8 @@ public class ObjectPoolManager : MonoBehaviour
     
     private void Awake()
     {
-        if (Instance == null)
-        {
+        if(Instance == null)
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            if (Instance != this)
-                Destroy(gameObject);
-        }
-
         for(int i = 1; i <= obj.Count; i++) 
         {
             Queue<GameObject> que = new Queue<GameObject>();

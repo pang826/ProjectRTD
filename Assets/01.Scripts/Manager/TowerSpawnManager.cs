@@ -11,16 +11,8 @@ public class TowerSpawnManager : MonoBehaviour
     [SerializeField] public int TowerPrice;
     private void Awake()
     {
-        if (Instance == null)
-        {
+        if(Instance == null)
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            if (Instance != this)
-                Destroy(gameObject);
-        }
         towerCount = towers.Length;
 
         for(int i = 0; i < towers.Length; i++) 
@@ -35,5 +27,10 @@ public class TowerSpawnManager : MonoBehaviour
         int randNum = Random.Range(0, towerCount);
         towerDic[(E_TowerType)randNum].Enqueue(towers[randNum]);
         return towers[randNum];
+    }
+
+    public void UpgradeTower(Tower tower)
+    {
+        tower.UpgradeTower(tower.Lv2Dmg, tower.Lv3Dmg);
     }
 }

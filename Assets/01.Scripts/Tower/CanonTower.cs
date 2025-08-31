@@ -34,6 +34,7 @@ public class CanonTower : Tower
     {
         if (isAttack == false)
         {
+            SoundManager.Instance.StartSFX(SoundManager.E_SFX.Canon);
             anim.SetTrigger("isAttack");
             GameObject obj = ObjectPoolManager.Instance.GetObject(child.poolType, transform);
             obj.GetComponent<Bullet>().Init(child, enemy.transform.position);

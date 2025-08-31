@@ -4,7 +4,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-public class CSVTester : MonoBehaviour
+public class MonsterCSV : MonoBehaviour
 {
     private static string filePath = "/CSV/TestCSVFile.csv";
     // Unity 상단 메뉴에 버튼을 생성하고 버튼을 누르면 기능을 하는 방법

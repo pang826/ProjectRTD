@@ -22,13 +22,14 @@ public class TowerManagementUI : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         unhidePos = rectTransform.anchoredPosition;
-        hidePos = new Vector2(460, 0);
+        hidePos = new Vector2(460, rectTransform.anchoredPosition.y);
         hideButtonText = HideButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
     public void BuyTower()
     {
-        if(TowerBase != null &&TowerBase.isSpawned == false && PlayerStatManager.Instance.Energy >= TowerSpawnManager.Instance.TowerPrice)
+        Debug.Log($"{TowerSpawnManager.Instance.TowerPrice} Å×½ºÆ®2 ");
+        if (TowerBase != null &&TowerBase.isSpawned == false && PlayerStatManager.Instance.Energy >= TowerSpawnManager.Instance.TowerPrice)
         {
             GameObject towerObj = Instantiate(TowerSpawnManager.Instance.Spawn(), TowerBase.transform.GetChild(0).position, Quaternion.identity);
             PlayerStatManager.Instance.ConsumeEnergyToSpawnTower();
@@ -43,7 +44,7 @@ public class TowerManagementUI : MonoBehaviour
         {
             PlayerStatManager.Instance.ConsumeEnergyToSpawnTower();
             Tower tower = TowerBase.transform.GetChild(0).GetChild(0).GetComponent<Tower>();
-            tower.UpgradeTower(tower.Lv2Dmg, tower.Lv3Dmg);
+            TowerSpawnManager.Instance.UpgradeTower(tower);
         }
     }
 

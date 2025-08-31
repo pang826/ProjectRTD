@@ -9676,8 +9676,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   poolType: 1
   Damage: 3
-  Lv2Dmg: 1
-  Lv3Dmg: 2
+  Lv2Dmg: 2
+  Lv3Dmg: 3
   Speed: 20
   lv2Effect: {fileID: 2137995452100184778}
   lv3Effect: {fileID: 8442038720563732650}
