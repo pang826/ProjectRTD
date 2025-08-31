@@ -56,12 +56,12 @@
 
 - 카드 사용
 
-| <img width="956" height="534" alt="Image" src="https://github.com/user-attachments/assets/bc96b98b-ac31-43c9-8b7c-6a401c1d18d6" /> | <img width="956" height="534" alt="Image" src="https://github.com/user-attachments/assets/4e1c1c6c-80ce-49b8-a517-30f9d05da02b" /> | <img width="956" height="534" alt="Image" src="https://github.com/user-attachments/assets/d1d544f9-7468-47f5-b9c4-b3d10ffe99a4" /> |
+| ![카드 생성](Assets/Docs/GenerageCard.gif) | ![드래그앤드랍](Assets/Docs/DragAndDrop.gif) | ![카드적용](Assets/Docs/SlowCard.gif) |
 |:---:|:---:|:---:|
 | 카드생성 | 드래그 앤 드랍 | 카드적용(마나 소모) |
 
 - 카드 종류
 
-| <img width="956" height="534" alt="Image" src="https://github.com/user-attachments/assets/e9f24cff-805c-43df-99b4-544e9f8ee2c2" /> | <img width="956" height="534" alt="Image" src="https://github.com/user-attachments/assets/4e8b65de-c13e-4c12-aa4e-6ea7c1b1effe" /> |
+| ![카드적용](Assets/Docs/SlowCard.gif) | ![카드적용](Assets/Docs/DamageCard.gif) |
 |:---:|:---:|
 | 슬로우카드 | 데미지카드 |
