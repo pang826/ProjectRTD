@@ -22,9 +22,9 @@
 ## 게임설명
 
 
-| [![동영상 제목](https://img.youtube.com/vi/b9fwUpi59WU/0.jpg)](https://www.youtube.com/watch?v=b9fwUpi59WU) |
+| [![동영상](https://img.youtube.com/vi/b9fwUpi59WU/0.jpg)](https://www.youtube.com/watch?v=b9fwUpi59WU) |
 |:-------:|
-| 플레이화면 |
+| 플레이영상(썸네일 클릭시 유튜브 영상 재생) |
 
 - 물리쳐라! ⚔️
   <br>스테이지별로 마을을 침공하기 위해 몰려오는 적들을 물리쳐야 합니다. 에너지를 사용하여 적절한 위치에 타워를 소환, 강화할 수 있습니다. 전략적인 위치에 소환하고 강화하여 적들을 모두 물리치세요!
